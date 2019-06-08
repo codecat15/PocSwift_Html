@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <head>
+        <meta charset="utf-8">
+            <title>MYLO Report</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <!-- <meta name="keywords" content="HTML, Meta Tags, Metadata" /> -->
+            <style type="text/css">
+                @media print {
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                        -webkit-box-sizing: border-box;
+                    }
+
+                    .clearfix {
+                        clear: both;
+                        display: block;
+                    }
+
+                    .clearfix::after {
+                        content: "";
+                        clear: both;
+                        display: block;
+                    }
+                }
+            </style>
+    </head>
+
+    <body ng-app="myApp" ng-controller="myCtrl"
+        style=" font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size:16px; line-height:20px; margin:0; padding:0 0 30px; background-color: #F3F3F3; width:1000px; margin:0 auto;">
+
+        <button onclick="changeScopeUserModel()">Change scope</button>
+        <div style="width:100%; position: relative; padding:10px 0;">
+            <div style="float:left; width:40%; padding:15px 0;">
+                <img src="images/user-icon.png" style="vertical-align:middle;">
+                    <strong style="display:inline-block; vertical-align:middle; margin-left:10px;">Peggy Smith</strong>
+                    </div>
+            <img src="images/header-logo.png" alt="Mylo" style="width:20%; margin: 0;  vertical-align:middle;">
+                <div style="float:right; width:auto; padding:15px 0; ">
+                    <img src="images/calendar-icon.png" style="vertical-align:middle;">
+                        <strong style="vertical-align:middle; display:inline-block; margin-left:10px;">23 Apr 2019</strong>
+                        </div>
+                <div class="clearfix" style="clear:both; display:block; content:"";"></div>
+                </div>
+        <div
+            style="background-color:#37ACD9; padding:10px 0; font-size:16px; color:#fff; text-align: center; text-transform: uppercase; font-weight:bold; background-image:url(images/gradiant.png); background-repeat:no-repeat; background-position: 0 0; background-size:cover;">
+            Personal & Medical Profile & Emergency Contacts
+            </div>
+
+            <div style="padding:20px 0;">
+            <img src="images/personal-profile.png" alt="" style="display:inline-block; vertical-align:middle; width:5%;">
+                <span
+                    style="display:inline-block; color: #2AABE1; font-weight: 400; font-size:16px; vertical-align:middle; margin-left:10px;">Personal
+                    Profile</span>
+                </div>
+
+        <!-- repeat this block based on the data model array -->
+        <div id="personal-profile"
+            style="margin:0; padding: 15px; background-color:#fff; border:1px solid #ddd; border-radius:10px;">
+            <div id="personal-relationship" ng-repeat="user in userModelList track by $index">
+                <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+                    <label style="display:block; font-size:14px; color: #747474;">Name</label>
+                    <span id="user-name"
+                        style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{user.name}}</span>
+                </div>
+                <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+                    <label style="display:block; font-size:14px; color: #747474;">Relationship</label>
+                    <span id="relationship"
+                        style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{user.relationship}}</span>
+                </div>
+                <div class="clearfix" style="clear:both; display:block; content:"";"></div>
+            </div>
+
+            <!-- Pets section starts here -->
+            <div class="clearfix" style="clear:both; display:block; content:"";"></div>
+            <div style="width:100%; float:left; padding: 0 10px; margin:0 0 10px;">
+                <label style="display:block; font-size:14px; color: #747474;">Pet(s)</label>
+                <span style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">YES</span>
+            </div>
+            <div class="clearfix" style="clear:both; display:block; content:"";"></div>
+
+        </div>
+
+        <div style="page-break-after: always;"></div>
+
+        <div style="padding:20px 0;">
+            <img src="images/personal-profile.png" alt="" style="display:inline-block; vertical-align:middle; width:5%;">
+                <span
+                    style="display:inline-block; color: #2AABE1; font-weight: 400; font-size:16px; vertical-align:middle; margin-left:10px;">Medical
+                    Profile</span>
+                </div>
+
+        <div style="margin:0; padding: 15px; background-color:#fff; border:1px solid #ddd; border-radius:10px;">
+        </div>
+
+    </body>
+
+    <script>
+    function changeScopeUserModel(userInfo) {
+        var $scope = angular.element(document.getElementById('personal-profile')).scope();
+        $scope.userModelList = JSON.parse(userInfo);
+        $scope.$apply();
+    }
+
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", function ($scope) {
+                   });
+        </script>
+
+</html>
