@@ -28,12 +28,9 @@ class ViewController: UIViewController {
 
     func loadSwiftContentToJavascript(){
 
-        let inputPayload = ["name": "User1","relationship":"father"]
-        let inputPayload2 = ["name": "User2","relationship":"mother"]
-         let inputPayload3 = ["name": "User3","relationship":"cousin"]
-        let arr = [inputPayload, inputPayload2, inputPayload3]
+        let reportData = MockData().getMockDataForReports()
 
-        let serializedData = try! JSONSerialization.data(withJSONObject: arr, options: [])
+        let serializedData = try! JSONSerialization.data(withJSONObject: reportData, options: [])
         let encodedData = String(data: serializedData, encoding: String.Encoding.utf8)
 
         self.pocWebView.evaluateJavaScript("changeScopeUserModel('\(encodedData!)')") { (anyObject, error) in
