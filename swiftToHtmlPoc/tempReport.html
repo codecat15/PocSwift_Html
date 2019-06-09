@@ -53,7 +53,7 @@
   <!-- Main Div element -->
   <div id="personal-profile">
     <!-- Doctors and Other health care div -->
-    <div id="doctor-header">
+    <div id="doctor-header" ng-if="masterDataModel.doctor.length > 0">
       <div style="padding:20px 0;">
         <img src="images/personal-profile.png" style="display:inline-block; vertical-align:middle; width:5%;">
         <span
@@ -76,7 +76,7 @@
     </div>
 
     <!-- Hospitals, Rehab and Home health care agencies div -->
-    <div id="hospital-header">
+    <div id="hospital-header" ng-if="masterDataModel.hospital.length > 0">
       <div style="padding:20px 0;">
         <img src="images/personal-profile.png" style="display:inline-block; vertical-align:middle; width:5%;">
         <span
@@ -99,7 +99,7 @@
     </div>
 
     <!-- Pharmacies And Home Medical Equipment: div -->
-    <div id="pharmacy-header">
+    <div id="pharmacy-header" ng-if="masterDataModel.pharmacy.length > 0">
       <div style="padding:20px 0;">
         <img src="images/personal-profile.png" style="display:inline-block; vertical-align:middle; width:5%;">
         <span
@@ -146,7 +146,7 @@
     </div>
 
     <!-- Pet profile: div -->
-    <div id="pet-header" ng-if="petsModelList.length > 0">
+    <div id="pet-header" ng-if="masterDataModel.pet.length > 0">
       <div style="padding:20px 0;">
         <img src="images/personal-profile.png" style="display:inline-block; vertical-align:middle; width:5%;">
         <span
@@ -165,6 +165,36 @@
             ng-if="value.length === 0">Field is Empty</span>
         </div>
         <div class="clearfix" style="clear:both; display:block; content:"";"></div>
+      </div>
+    </div>
+
+    <!-- Medical profile: div -->
+    <div id="pet-header" ng-if="masterDataModel.allergy.length > 0">
+      <div style="padding:20px 0;">
+        <img src="images/personal-profile.png" style="display:inline-block; vertical-align:middle; width:5%;">
+        <span
+          style="display:inline-block; color: #2AABE1; font-weight: 400; font-size:16px; vertical-align:middle; margin-left:10px;">Medical
+          Profile</span>
+      </div>
+      <div id="personal-relationship"
+        style="margin:0; margin-bottom: 10px; padding: 15px; background-color:#fff; border:1px solid #ddd; border-radius:10px;"
+        ng-repeat="allergy in masterDataModel.allergy">
+        <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;" ng-repeat="(key, value) in allergy">
+          <label style="display:block; font-size:14px; color: #747474;">{{key+":"}}</label>
+          <span id="user-name" style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;"
+            ng-if="value.length > 0">{{value}}</span>
+          <span id="user-name"
+            style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd; color:#737373"
+            ng-if="value.length === 0">Field is Empty</span>
+        </div>
+        <div class="clearfix" style="clear:both; display:block; content:"";"></div>
+      </div>
+      <!-- TODO: Make this dynamic -->
+      <div id="allergy-notes">
+        <label style="display:block; font-size:14px; color: #747474;">Allergy Notes</label>
+        <strong>I sometimes have an allergy attack when the pollen count is high - I take something over the counter
+          like
+          Benadryl.</strong>
       </div>
     </div>
 
@@ -303,17 +333,29 @@
       "Notes about Pet": "Not good with small children"
     }];
 
+    const allergyModel = [{
+      "Allergy1": "Naxoplaxon",
+      "Reaction": "Difficulty breathing",
+      "Treatment": "Call Dr."
+    }, {
+      "Allergy2": "Egg plant",
+      "Reaction": "Hives",
+      "Treatment": "Benedryl"
+    }];
+
     $scope.petsModelList = petModel;
     $scope.doctorModelList = doctorModel;
     $scope.hospitalModelList = hospitalModel;
     $scope.pharmacyModelList = pharmacyModel;
+    $scope.allergyModelList = allergyModel;
 
     $scope.masterDataModel = {
       "doctor": $scope.doctorModelList,
       "hospital": $scope.hospitalModelList,
       "pharmacy": $scope.pharmacyModelList,
       "personalProfile": $scope.personalProfileModel,
-      "pet": $scope.petsModelList
+      "pet": $scope.petsModelList,
+      "allergy": $scope.allergyModelList
     };
 
   });
