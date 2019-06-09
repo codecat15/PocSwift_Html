@@ -15,6 +15,11 @@
 		86BA7D9622AB4C7300FE0266 /* swiftToHtmlPocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7D9522AB4C7300FE0266 /* swiftToHtmlPocTests.swift */; };
 		86BA7DA422AB666600FE0266 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BA7DA322AB666600FE0266 /* WebKit.framework */; };
 		86E4DC6C22ABFA2F001C4CC0 /* tempReport.html in Resources */ = {isa = PBXBuildFile; fileRef = 86E4DC6B22ABFA2F001C4CC0 /* tempReport.html */; };
+		86F5AFF522ADBED500BCDD61 /* gradiant.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF022ADBED500BCDD61 /* gradiant.png */; };
+		86F5AFF622ADBED500BCDD61 /* calendar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF122ADBED500BCDD61 /* calendar-icon.png */; };
+		86F5AFF722ADBED500BCDD61 /* personal-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF222ADBED500BCDD61 /* personal-profile.png */; };
+		86F5AFF822ADBED500BCDD61 /* header-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF322ADBED500BCDD61 /* header-logo.png */; };
+		86F5AFF922ADBED500BCDD61 /* user-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF422ADBED500BCDD61 /* user-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,11 @@
 		86BA7D9722AB4C7300FE0266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86BA7DA322AB666600FE0266 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		86E4DC6B22ABFA2F001C4CC0 /* tempReport.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tempReport.html; sourceTree = "<group>"; };
+		86F5AFF022ADBED500BCDD61 /* gradiant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradiant.png; sourceTree = "<group>"; };
+		86F5AFF122ADBED500BCDD61 /* calendar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-icon.png"; sourceTree = "<group>"; };
+		86F5AFF222ADBED500BCDD61 /* personal-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personal-profile.png"; sourceTree = "<group>"; };
+		86F5AFF322ADBED500BCDD61 /* header-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "header-logo.png"; sourceTree = "<group>"; };
+		86F5AFF422ADBED500BCDD61 /* user-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,11 @@
 		86BA7D7F22AB4C7200FE0266 /* swiftToHtmlPoc */ = {
 			isa = PBXGroup;
 			children = (
+				86F5AFF122ADBED500BCDD61 /* calendar-icon.png */,
+				86F5AFF022ADBED500BCDD61 /* gradiant.png */,
+				86F5AFF322ADBED500BCDD61 /* header-logo.png */,
+				86F5AFF222ADBED500BCDD61 /* personal-profile.png */,
+				86F5AFF422ADBED500BCDD61 /* user-icon.png */,
 				86E4DC6B22ABFA2F001C4CC0 /* tempReport.html */,
 				86BA7D8022AB4C7200FE0266 /* AppDelegate.swift */,
 				86BA7D8222AB4C7200FE0266 /* ViewController.swift */,
@@ -192,10 +207,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86F5AFF722ADBED500BCDD61 /* personal-profile.png in Resources */,
+				86F5AFF822ADBED500BCDD61 /* header-logo.png in Resources */,
 				86E4DC6C22ABFA2F001C4CC0 /* tempReport.html in Resources */,
 				86BA7D8B22AB4C7300FE0266 /* LaunchScreen.storyboard in Resources */,
 				86BA7D8822AB4C7300FE0266 /* Assets.xcassets in Resources */,
+				86F5AFF522ADBED500BCDD61 /* gradiant.png in Resources */,
+				86F5AFF622ADBED500BCDD61 /* calendar-icon.png in Resources */,
 				86BA7D8622AB4C7200FE0266 /* Main.storyboard in Resources */,
+				86F5AFF922ADBED500BCDD61 /* user-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
