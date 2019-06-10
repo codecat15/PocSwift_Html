@@ -12,13 +12,13 @@ struct MockData
 {
     func getMockDataForReports() -> [String: Any]{
         return [ "doctor": getMockDataForDoctor(),
-                               "hospital": getMockDataForHospital(),
-                               "username":"codecat15",
-                               "pharmacy": getMockDataForPharmacy(),
-                               "personalProfile": getMockDataForPersonalProfile(),
-                               "pet": getMockDataForPets(),
-                               "allergy": getMockDataForAllergy()
-            ]
+                 "hospital": getMockDataForHospital(),
+                 "username":"codecat15",
+                 "pharmacy": getMockDataForPharmacy(),
+                 "personalProfile": getMockDataForPersonalProfile(),
+                 "pet": getMockDataForPets(),
+                 "allergy": getMockDataForAllergy()
+        ]
     }
 
     func getMockDataForDoctor() -> [[String:String]]{
