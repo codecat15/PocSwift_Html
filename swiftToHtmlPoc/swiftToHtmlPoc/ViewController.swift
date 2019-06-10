@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
         let htmlFile = Bundle.main.path(forResource: "tempReport", ofType: "html")
         let html = try? String(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8)
         self.pocWebView.loadHTMLString(html!, baseURL: Bundle.main.bundleURL)
@@ -27,12 +26,9 @@ class ViewController: UIViewController {
     }
 
     func loadSwiftContentToJavascript(){
-
         let reportData = MockData().getMockDataForReports()
-
         let serializedData = try! JSONSerialization.data(withJSONObject: reportData, options: [])
         let encodedData = String(data: serializedData, encoding: String.Encoding.utf8)
-
         self.pocWebView.evaluateJavaScript("changeScopeUserModel('\(encodedData!)')") { (anyObject, error) in
             if error != nil{
                 print(error!)

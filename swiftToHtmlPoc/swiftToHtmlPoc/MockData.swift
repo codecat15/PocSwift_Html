@@ -13,12 +13,12 @@ struct MockData
 
     func getMockDataForReports() -> [String: Any]{
 
-        return [ "doctor": getMockDataForDoctor()
-                              // "hospital": getMockDataForHospital(),
-                              // "pharmacy": getMockDataForPharmacy(),
-                              // "personalProfile": getMockDataForPersonalProfile(),
-                              // "pet": getMockDataForPets(),
-                               //"allergy": getMockDataForAllergy()
+        return [ "doctor": getMockDataForDoctor(),
+                               "hospital": getMockDataForHospital(),
+                               "pharmacy": getMockDataForPharmacy(),
+                               "personalProfile": getMockDataForPersonalProfile(),
+                               "pet": getMockDataForPets(),
+                               "allergy": getMockDataForAllergy()
             ] as [String : Any]
     }
 
@@ -54,7 +54,7 @@ struct MockData
     func getMockDataForHospital() -> [[String:String]] {
         return [[
             "Category": "Home Health Care Agency",
-            "Name": "Simon's Home Care",
+            "Name": "Simons Home Care",
             "Address": "4324 Broadway NYC",
             "Website": "SHC.com",
             "In Network Status": "",

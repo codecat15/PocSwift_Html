@@ -214,7 +214,15 @@
   function changeScopeUserModel(userInfo) {
     debugger;
     var $scope = getScope();
-    $scope.masterDataModel = userInfo
+    const parsedResponse = JSON.parse(userInfo);
+    $scope.masterDataModel = {
+      "doctor": parsedResponse.doctor,
+      "hospital": parsedResponse.hospital,
+      "pharmacy": parsedResponse.pharmacy,
+      "personalProfile": parsedResponse.personalProfile,
+      "pet": parsedResponse.pet,
+      "allergy": parsedResponse.allergy
+    };
     console.log($scope.masterDataModel);
     $scope.$apply();
   }
