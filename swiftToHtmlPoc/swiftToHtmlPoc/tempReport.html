@@ -36,7 +36,8 @@
   <div style="width:100%; position: relative; padding:10px 0;">
     <div style="float:left; width:40%; padding:15px 0;">
       <img src="user-icon.png" style="vertical-align:middle;">
-      <strong style="display:inline-block; vertical-align:middle; margin-left:10px;">Peggy Smith</strong>
+      <strong
+        style="display:inline-block; vertical-align:middle; margin-left:10px;">{{masterDataModel.username}}</strong>
     </div>
     <img src="header-logo.png" alt="Mylo" style="width:20%; margin: 0;  vertical-align:middle;">
     <div style="float:right; width:auto; padding:15px 0; ">
@@ -221,7 +222,8 @@
       "pharmacy": parsedResponse.pharmacy,
       "personalProfile": parsedResponse.personalProfile,
       "pet": parsedResponse.pet,
-      "allergy": parsedResponse.allergy
+      "allergy": parsedResponse.allergy,
+      "username": parsedResponse.username
     };
     console.log($scope.masterDataModel);
     $scope.$apply();

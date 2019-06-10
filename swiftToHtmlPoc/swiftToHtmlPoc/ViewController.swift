@@ -26,6 +26,14 @@ class ViewController: UIViewController {
     }
 
     func loadSwiftContentToJavascript(){
+
+        //Pending items
+        //1. We are using dictionary so sorting is an issue we plan to use KeyValuePairs or some alternate approach
+        //2. Medical profile HTML UI is pending
+        //3. Some HTML code clean up
+        //4. Adding Angular 1.6 minified version to the bundle
+        //5. If long address is there the UI breaks
+
         let reportData = MockData().getMockDataForReports()
         let serializedData = try! JSONSerialization.data(withJSONObject: reportData, options: [])
         let encodedData = String(data: serializedData, encoding: String.Encoding.utf8)

@@ -10,16 +10,15 @@ import Foundation
 
 struct MockData
 {
-
     func getMockDataForReports() -> [String: Any]{
-
         return [ "doctor": getMockDataForDoctor(),
                                "hospital": getMockDataForHospital(),
+                               "username":"codecat15",
                                "pharmacy": getMockDataForPharmacy(),
                                "personalProfile": getMockDataForPersonalProfile(),
                                "pet": getMockDataForPets(),
                                "allergy": getMockDataForAllergy()
-            ] as [String : Any]
+            ]
     }
 
     func getMockDataForDoctor() -> [[String:String]]{
@@ -34,7 +33,7 @@ struct MockData
             "Electionic Health Record Link": "",
             "Notes": "",
             "Contact1": "Office:(212) 348-1111",
-            "Contact2": "Mobile:(212)348-1111"
+            "Contact2": "Mobile:(212)348-1111",
             ], [
                 "Speciality": "Gynechologist",
                 "Name": "Dr Bruce-Mayer-Gyno",
