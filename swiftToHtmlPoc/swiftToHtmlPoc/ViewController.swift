@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         let encodedData = String(data: serializedData, encoding: String.Encoding.utf8)
         self.pocWebView.evaluateJavaScript("changeScopeUserModel('\(encodedData!)')") { (anyObject, error) in
             if error != nil{
-                print(error!)
+                debugPrint(error!)
             }
         }
     }
