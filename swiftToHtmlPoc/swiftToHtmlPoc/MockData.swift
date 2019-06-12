@@ -8,17 +8,34 @@
 
 import Foundation
 
+struct PersonalProfile{
+    var name: String
+    var age: String
+    var address: String
+
+    var reportDictionaryFormat: KeyValuePairs<String, String> {
+        return ["FirstName": name,
+                "Address": address,
+                "Age": age]
+    }
+}
+
+
 struct MockData
 {
     func getMockDataForReports() -> [String: Any]{
-        return [ "doctor": getMockDataForDoctor(),
-                 "hospital": getMockDataForHospital(),
-                 "username":"codecat15",
-                 "pharmacy": getMockDataForPharmacy(),
-                 "personalProfile": getMockDataForPersonalProfile(),
-                 "pet": getMockDataForPets(),
-                 "allergy": getMockDataForAllergy()
+        return [ //"doctor": getMockDataForDoctor(),
+                 //"hospital": getMockDataForHospital(),
+                // "username":"codecat15",
+                // "pharmacy": getMockDataForPharmacy(),
+            "personalProfile": getMockDataForPersonalProfileStructure(),
+                // "pet": getMockDataForPets(),
+                // "allergy": getMockDataForAllergy()
         ]
+    }
+
+    func getMockDataForPersonalProfileStructure() -> KeyValuePairs<String,String> {
+        return PersonalProfile(name: "user1", age: "30", address: "test address").reportDictionaryFormat
     }
 
     func getMockDataForDoctor() -> [[String:String]]{
