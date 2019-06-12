@@ -8,16 +8,20 @@
 
 import Foundation
 
-struct PersonalProfile{
+extension Encodable {
+    func toDictionary() throws -> [String: Any] {
+        let encodedData = try JSONEncoder().encode(self)
+        guard let dataDictionary = try JSONSerialization.jsonObject(with: encodedData, options: .allowFragments) as? [String: Any] else {
+            throw NSError()
+        }
+        return dataDictionary
+    }
+}
+
+struct PersonalProfile: Encodable{
     var name: String
     var age: String
     var address: String
-
-    var reportDictionaryFormat: KeyValuePairs<String, String> {
-        return ["FirstName": name,
-                "Address": address,
-                "Age": age]
-    }
 }
 
 
@@ -34,8 +38,8 @@ struct MockData
         ]
     }
 
-    func getMockDataForPersonalProfileStructure() -> KeyValuePairs<String,String> {
-        return PersonalProfile(name: "user1", age: "30", address: "test address").reportDictionaryFormat
+    func getMockDataForPersonalProfileStructure() -> [String:Any] {
+        return try! PersonalProfile(name: "user1", age: "30", address: "test address").toDictionary()
     }
 
     func getMockDataForDoctor() -> [[String:String]]{
