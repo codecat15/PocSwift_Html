@@ -521,9 +521,11 @@
   }
 
   function renderReportData(reportData) {
-    //debugger;
+    debugger;
     var $scope = getScope();
-    const parsedResponse = JSON.parse(reportData);
+    var decodedData = window.atob(reportData); // decode the string
+    console.log(decodedData);
+    const parsedResponse = JSON.parse(decodedData);
     $scope.masterDataModel = {
       "doctor": parsedResponse.doctor,
       "hospital": parsedResponse.hospital,
