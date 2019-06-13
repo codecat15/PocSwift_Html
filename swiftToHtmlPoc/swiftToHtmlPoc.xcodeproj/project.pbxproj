@@ -15,6 +15,10 @@
 		86BA7D9622AB4C7300FE0266 /* swiftToHtmlPocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7D9522AB4C7300FE0266 /* swiftToHtmlPocTests.swift */; };
 		86BA7DA422AB666600FE0266 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BA7DA322AB666600FE0266 /* WebKit.framework */; };
 		86E4DC6C22ABFA2F001C4CC0 /* tempReport.html in Resources */ = {isa = PBXBuildFile; fileRef = 86E4DC6B22ABFA2F001C4CC0 /* tempReport.html */; };
+		86F118DF22B1A9B900F46E1A /* EncodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118DE22B1A9B900F46E1A /* EncodableExtensions.swift */; };
+		86F118E222B1A9F800F46E1A /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118E122B1A9F800F46E1A /* Doctor.swift */; };
+		86F118E422B1C9C200F46E1A /* Hospitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118E322B1C9C200F46E1A /* Hospitals.swift */; };
+		86F118E622B1D29200F46E1A /* angular.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 86F118E522B1D29200F46E1A /* angular.min.js */; };
 		86F5AFF522ADBED500BCDD61 /* gradiant.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF022ADBED500BCDD61 /* gradiant.png */; };
 		86F5AFF622ADBED500BCDD61 /* calendar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF122ADBED500BCDD61 /* calendar-icon.png */; };
 		86F5AFF722ADBED500BCDD61 /* personal-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF222ADBED500BCDD61 /* personal-profile.png */; };
@@ -46,6 +50,10 @@
 		86BA7D9722AB4C7300FE0266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86BA7DA322AB666600FE0266 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		86E4DC6B22ABFA2F001C4CC0 /* tempReport.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tempReport.html; sourceTree = "<group>"; };
+		86F118DE22B1A9B900F46E1A /* EncodableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtensions.swift; sourceTree = "<group>"; };
+		86F118E122B1A9F800F46E1A /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		86F118E322B1C9C200F46E1A /* Hospitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitals.swift; sourceTree = "<group>"; };
+		86F118E522B1D29200F46E1A /* angular.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = angular.min.js; sourceTree = "<group>"; };
 		86F5AFF022ADBED500BCDD61 /* gradiant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradiant.png; sourceTree = "<group>"; };
 		86F5AFF122ADBED500BCDD61 /* calendar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-icon.png"; sourceTree = "<group>"; };
 		86F5AFF222ADBED500BCDD61 /* personal-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personal-profile.png"; sourceTree = "<group>"; };
@@ -95,6 +103,9 @@
 		86BA7D7F22AB4C7200FE0266 /* swiftToHtmlPoc */ = {
 			isa = PBXGroup;
 			children = (
+				86F118E522B1D29200F46E1A /* angular.min.js */,
+				86F118E022B1A9E900F46E1A /* Models */,
+				86F118DD22B1A9AA00F46E1A /* Extensions */,
 				86F5AFF122ADBED500BCDD61 /* calendar-icon.png */,
 				86F5AFF022ADBED500BCDD61 /* gradiant.png */,
 				86F5AFF322ADBED500BCDD61 /* header-logo.png */,
@@ -127,6 +138,23 @@
 				86BA7DA322AB666600FE0266 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86F118DD22B1A9AA00F46E1A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				86F118DE22B1A9B900F46E1A /* EncodableExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		86F118E022B1A9E900F46E1A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86F118E122B1A9F800F46E1A /* Doctor.swift */,
+				86F118E322B1C9C200F46E1A /* Hospitals.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +243,7 @@
 				86E4DC6C22ABFA2F001C4CC0 /* tempReport.html in Resources */,
 				86BA7D8B22AB4C7300FE0266 /* LaunchScreen.storyboard in Resources */,
 				86BA7D8822AB4C7300FE0266 /* Assets.xcassets in Resources */,
+				86F118E622B1D29200F46E1A /* angular.min.js in Resources */,
 				86F5AFF522ADBED500BCDD61 /* gradiant.png in Resources */,
 				86F5AFF622ADBED500BCDD61 /* calendar-icon.png in Resources */,
 				86BA7D8622AB4C7200FE0266 /* Main.storyboard in Resources */,
@@ -237,6 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				86BA7D8322AB4C7200FE0266 /* ViewController.swift in Sources */,
+				86F118E422B1C9C200F46E1A /* Hospitals.swift in Sources */,
+				86F118E222B1A9F800F46E1A /* Doctor.swift in Sources */,
+				86F118DF22B1A9B900F46E1A /* EncodableExtensions.swift in Sources */,
 				86F5AFFB22ADC0C800BCDD61 /* MockData.swift in Sources */,
 				86BA7D8122AB4C7200FE0266 /* AppDelegate.swift in Sources */,
 			);

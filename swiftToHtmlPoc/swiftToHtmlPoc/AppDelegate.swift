@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  swiftToHtmlPoc
 //
-//  Created by Ravi R Dixit on 6/7/19.
+//  Created by Quagnitia on 6/7/19.
 //  Copyright © 2019 Quagnitia. All rights reserved.
 //
 

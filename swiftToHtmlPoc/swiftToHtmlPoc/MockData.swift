@@ -8,93 +8,19 @@
 
 import Foundation
 
-extension Encodable {
-    func toDictionary() throws -> [String: Any] {
-        let encodedData = try JSONEncoder().encode(self)
-        guard let dataDictionary = try JSONSerialization.jsonObject(with: encodedData, options: .allowFragments) as? [String: Any] else {
-            throw NSError()
-        }
-        return dataDictionary
-    }
-}
-
-struct PersonalProfile: Encodable{
-    var name: String
-    var age: String
-    var address: String
-}
-
-
 struct MockData
 {
     func getMockDataForReports() -> [String: Any]{
-        return [ //"doctor": getMockDataForDoctor(),
-                 //"hospital": getMockDataForHospital(),
+        return [ "doctor": Doctor.getMockDoctorResponse(),
+                 "hospital": Hospitals.getMockHospitalResponse(),
                 // "username":"codecat15",
                 // "pharmacy": getMockDataForPharmacy(),
-            "personalProfile": getMockDataForPersonalProfileStructure(),
+            //"personalProfile": getMockDataForPersonalProfileStructure(),
                 // "pet": getMockDataForPets(),
                 // "allergy": getMockDataForAllergy()
         ]
     }
-
-    func getMockDataForPersonalProfileStructure() -> [String:Any] {
-        return try! PersonalProfile(name: "user1", age: "30", address: "test address").toDictionary()
-    }
-
-    func getMockDataForDoctor() -> [[String:String]]{
-        return [[
-            "Speciality": "Gynechologist","Name": "Dr Jill Fishbane-Mayer-Gyno",
-            "Address": "4 East 95th St 1a NY NY USA",
-            "Website": "",
-            "Medical Practice Name": "",
-            "Hospital Affiliations": "",
-            "In Network Status": "",
-            "Last Seen": "",
-            "Electionic Health Record Link": "",
-            "Notes": "",
-            "Contact1": "Office:(212) 348-1111",
-            "Contact2": "Mobile:(212)348-1111",
-            ], [
-                "Speciality": "Gynechologist",
-                "Name": "Dr Bruce-Mayer-Gyno",
-                "Address": "45 East 95th St 1a NY NY USA",
-                "Website": "",
-                "Medical Practice Name": "",
-                "Hospital Affiliations": "",
-                "In Network Status": "",
-                "Last Seen": "",
-                "Electionic Health Record Link": "",
-                "Notes": "",
-                "Contact1": "Office:(218) 348-1111",
-                "Contact2": "Mobile:(217)348-1111"
-            ]]
-    }
-
-    func getMockDataForHospital() -> [[String:String]] {
-        return [[
-            "Category": "Home Health Care Agency",
-            "Name": "Simons Home Care",
-            "Address": "4324 Broadway NYC",
-            "Website": "SHC.com",
-            "In Network Status": "",
-            "Last Seen": "",
-            "Electionic Health Record Link": "",
-            "Notes": "",
-            "Contact1": "Office:(218) 348-1111"
-            ], [
-                "Category": "Rehabilitation Center",
-                "Name": "11 West 69th Doorman Front Desk",
-                "Address": "4324 Broadway NYC",
-                "Website": "SHC.com",
-                "In Network Status": "",
-                "Last Seen": "",
-                "Electionic Health Record Link": "",
-                "Notes": "",
-                "Contact1": "Office:718-565-6564",
-            ]];
-    }
-
+    
     func getMockDataForPharmacy()->[[String:String]]{
         return [[
             "Name": "Cvs Uws Ny",
