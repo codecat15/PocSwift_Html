@@ -15,12 +15,12 @@ struct MockData
                  "hospital": Hospitals.getMockHospitalResponse(),
                 // "username":"codecat15",
                 // "pharmacy": getMockDataForPharmacy(),
-            //"personalProfile": getMockDataForPersonalProfileStructure(),
+            "personalProfile": UserProfile.getMockUserProfileResponse(),
                 // "pet": getMockDataForPets(),
                 // "allergy": getMockDataForAllergy()
         ]
     }
-    
+
     func getMockDataForPharmacy()->[[String:String]]{
         return [[
             "Name": "Cvs Uws Ny",

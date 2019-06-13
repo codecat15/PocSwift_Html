@@ -19,6 +19,7 @@
 		86F118E222B1A9F800F46E1A /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118E122B1A9F800F46E1A /* Doctor.swift */; };
 		86F118E422B1C9C200F46E1A /* Hospitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118E322B1C9C200F46E1A /* Hospitals.swift */; };
 		86F118E622B1D29200F46E1A /* angular.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 86F118E522B1D29200F46E1A /* angular.min.js */; };
+		86F118E822B1DCF800F46E1A /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118E722B1DCF800F46E1A /* UserProfile.swift */; };
 		86F5AFF522ADBED500BCDD61 /* gradiant.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF022ADBED500BCDD61 /* gradiant.png */; };
 		86F5AFF622ADBED500BCDD61 /* calendar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF122ADBED500BCDD61 /* calendar-icon.png */; };
 		86F5AFF722ADBED500BCDD61 /* personal-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF222ADBED500BCDD61 /* personal-profile.png */; };
@@ -54,6 +55,7 @@
 		86F118E122B1A9F800F46E1A /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		86F118E322B1C9C200F46E1A /* Hospitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitals.swift; sourceTree = "<group>"; };
 		86F118E522B1D29200F46E1A /* angular.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = angular.min.js; sourceTree = "<group>"; };
+		86F118E722B1DCF800F46E1A /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		86F5AFF022ADBED500BCDD61 /* gradiant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradiant.png; sourceTree = "<group>"; };
 		86F5AFF122ADBED500BCDD61 /* calendar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-icon.png"; sourceTree = "<group>"; };
 		86F5AFF222ADBED500BCDD61 /* personal-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personal-profile.png"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				86F118E122B1A9F800F46E1A /* Doctor.swift */,
 				86F118E322B1C9C200F46E1A /* Hospitals.swift */,
+				86F118E722B1DCF800F46E1A /* UserProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			files = (
 				86BA7D8322AB4C7200FE0266 /* ViewController.swift in Sources */,
 				86F118E422B1C9C200F46E1A /* Hospitals.swift in Sources */,
+				86F118E822B1DCF800F46E1A /* UserProfile.swift in Sources */,
 				86F118E222B1A9F800F46E1A /* Doctor.swift in Sources */,
 				86F118DF22B1A9B900F46E1A /* EncodableExtensions.swift in Sources */,
 				86F5AFFB22ADC0C800BCDD61 /* MockData.swift in Sources */,

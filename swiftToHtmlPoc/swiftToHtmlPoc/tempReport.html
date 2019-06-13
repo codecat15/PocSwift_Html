@@ -182,8 +182,8 @@
       <div style="padding:20px 0;">
         <img src="personal-profile.png" style="display:inline-block; vertical-align:middle; width:5%;">
         <span
-          style="display:inline-block; color: #2AABE1; font-weight: 400; font-size:16px; vertical-align:middle; margin-left:10px;">Doctors
-          & Other Health Care Professionals</span>
+          style="display:inline-block; color: #2AABE1; font-weight: 400; font-size:16px; vertical-align:middle; margin-left:10px;">Hospitals,
+          Rehab and Home health care agencies</span>
       </div>
       <div id="hospital-details" ng-repeat="hospital in masterDataModel.hospital"
         style="margin:0; margin-bottom: 10px; padding: 15px; background-color:#fff; border:1px solid #ddd; border-radius:10px;">
@@ -251,6 +251,8 @@
       </div>
     </div>
 
+    <!-- Pharmacies HTML will come here -->
+
     <!-- Pharmacies And Home Medical Equipment: div -->
     <!-- <div id="pharmacy-header" ng-if="masterDataModel.pharmacy.length > 0">
       <div style="padding:20px 0;">
@@ -275,6 +277,133 @@
     </div> -->
 
     <!-- Personal profile starts here -->
+    <div id="personal-profile-header" ng-if="!isEmpty(userProfile)">
+      <div style="padding:20px 0;">
+        <img src="personal-profile.png" style="display:inline-block; vertical-align:middle; width:5%;">
+        <span
+          style="display:inline-block; color: #2AABE1; font-weight: 400; font-size:16px; vertical-align:middle; margin-left:10px;">Personal
+          Profile</span>
+      </div>
+      <div id="profile-details"
+        style="margin:0; margin-bottom: 10px; padding: 15px; background-color:#fff; border:1px solid #ddd; border-radius:10px;">
+        <div>
+          <!-- Profile Name field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Name</label>
+            <span ng-if="userProfile.name.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.name}}</span>
+            <span ng-if="userProfile.name.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile Relationship field -->
+          <div style=" width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Relationship</label>
+            <span ng-if="userProfile.relationship.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.relationship}}</span>
+            <span ng-if="userProfile.relationship.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile Address field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Address</label>
+            <span ng-if="userProfile.address.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.address}}</span>
+            <span ng-if="userProfile.address.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile email field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Website</label>
+            <span ng-if="userProfile.email.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.email}}</span>
+            <span ng-if="userProfile.email.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile gender field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Medical Practice Name:</label>
+            <span ng-if="userProfile.gender.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.gender}}</span>
+            <span ng-if="userProfile.gender.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile Birthdate field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Birthdate</label>
+            <span ng-if="userProfile.birthDate.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.birthDate}}</span>
+            <span ng-if="userProfile.birthDate.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile Weight field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Weight</label>
+            <span ng-if="userProfile.weight.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.weight}}</span>
+            <span ng-if="userProfile.weight.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile Height field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Height</label>
+            <span ng-if="userProfile.height.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.height}}</span>
+            <span ng-if="userProfile.height.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+
+          <!-- Profile Language spoken field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Language Spoken</label>
+            <span ng-if="userProfile.languageSpoken.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.languageSpoken}}</span>
+            <span ng-if="userProfile.languageSpoken.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile Eyes field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Eyes:</label>
+            <span ng-if="userProfile.eyes.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.eyes}}</span>
+            <span ng-if="userProfile.eyes.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile Live alone field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Do you live alone?</label>
+            <span ng-if="userProfile.liveAlone.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.liveAlone}}</span>
+            <span ng-if="userProfile.liveAlone.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+          <!-- Profile Understand english field -->
+          <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
+            <label style="display:block; font-size:14px; color: #747474;">Understand English</label>
+            <span ng-if="userProfile.understandEnglish.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{userProfile.understandEnglish}}</span>
+            <span ng-if="userProfile.understandEnglish.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
+          </div>
+        </div>
+
+        <div class="clearfix" style="clear:both; display:block; content:"";"></div>
+      </div>
+    </div>
+
+
+
     <!-- TODO: Need to make a scope function to calculate length of dictionary -->
     <!-- <div id="personal-profile-header">
       <div style="padding:20px 0;">
@@ -365,7 +494,7 @@
   }
 
   function renderReportData(reportData) {
-    debugger;
+    //debugger;
     var $scope = getScope();
     const parsedResponse = JSON.parse(reportData);
     $scope.masterDataModel = {
@@ -377,6 +506,7 @@
       "allergy": parsedResponse.allergy,
       "username": parsedResponse.username
     };
+    $scope.userProfile = parsedResponse.personalProfile;
     console.log($scope.masterDataModel);
     $scope.$apply();
   }
@@ -385,6 +515,11 @@
   app.controller("myCtrl", function ($scope) {
     $scope.todayDate = new Date().toISOString().slice(0, 10);
     $scope.masterDataModel = {};
+
+    $scope.isEmpty = function (dictionary) {
+      return Object.keys(dictionary).length === 0
+    }
+
   });
 </script>
 
