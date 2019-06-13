@@ -68,18 +68,18 @@
           <!-- Doctor Specialist field -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Speciality</label>
-            <span ng-if="doctor.speciality.length > 0"
-              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{doctor.speciality}}</span>
-            <span ng-if="doctor.speciality.length === 0"
+            <span ng-if="doctor.mySpeciality.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{doctor.mySpeciality}}</span>
+            <span ng-if="doctor.mySpeciality.length === 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
               Empty</span>
           </div>
           <!-- Doctor Name field -->
           <div style=" width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Name</label>
-            <span ng-if="doctor.name.length > 0"
-              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{doctor.name}}</span>
-            <span ng-if="doctor.name.length === 0"
+            <span ng-if="doctor.myname.length > 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{doctor.myname}}</span>
+            <span ng-if="doctor.myname.length === 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
               Empty</span>
           </div>
@@ -191,59 +191,86 @@
           <!-- Hospital Category field -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Category</label>
-            <span
+            <span ng-if="hospital.category.length > 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{hospital.category}}</span>
+            <span ng-if="hospital.category.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
           </div>
           <!-- Hospital Name field -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Name</label>
-            <span
+            <span ng-if="hospital.name.length > 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{hospital.name}}</span>
+            <span ng-if="hospital.name.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
           </div>
           <!-- Hospital Address field -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Address</label>
-            <span
+            <span ng-if="hospital.address.length > 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{hospital.address}}</span>
+            <span ng-if="hospital.address.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
           </div>
           <!-- Hospital Website field -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Website</label>
-            <span
+            <span ng-if="hospital.website.length > 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{hospital.website}}</span>
+            <span ng-if="hospital.website.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
           </div>
           <!-- Hospital In Network status field -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">In Network Status:</label>
-            <span
+            <span ng-if="hospital.inNetworkStatus.length > 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{hospital.inNetworkStatus}}</span>
+            <span ng-if="hospital.inNetworkStatus.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
           </div>
 
           <!-- Hospital Last Seen: field -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Last Seen:</label>
-            <span
+            <span ng-if="hospital.lastSceen.length > 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{hospital.lastSceen}}</span>
+            <span ng-if="hospital.lastSceen.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;color:#737373;">Field is
+              Empty</span>
           </div>
 
           <!-- Hospital Electronic Health Care Patient Portal field -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Electronic Health Care Patient Portal:</label>
-            <span
+            <span ng-if="hospital.electronicHealthCarePatientPortal.length > 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{hospital.electronicHealthCarePatientPortal}}</span>
+            <span ng-if="hospital.electronicHealthCarePatientPortal.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">Field is
+              Empty</span>
           </div>
           <!-- Hospital Notes field -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Notes:</label>
-            <span
+            <span ng-if="hospital.notes.length > 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{hospital.notes}}</span>
+            <span ng-if="hospital.notes.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">Field is
+              Empty</span>
           </div>
           <!-- Hospital Contact1 field -->
           <!-- TODO: Need to make this field dynamic based on a collection -->
           <div style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;">
             <label style="display:block; font-size:14px; color: #747474;">Contact1:</label>
-            <span
+            <span ng-if="hospital.contact1.length > 0"
               style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">{{hospital.contact1}}</span>
+            <span ng-if="hospital.contact1.length === 0"
+              style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;">Field is
+              Empty</span>
           </div>
         </div>
 

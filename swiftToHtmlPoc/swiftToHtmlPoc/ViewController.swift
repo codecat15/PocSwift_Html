@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         let htmlFile = Bundle.main.path(forResource: "tempReport", ofType: "html")
         let html = try? String(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8)
         self.pocWebView.loadHTMLString(html!, baseURL: Bundle.main.bundleURL)
+        self.pocWebView.isHidden = true
     }
 
     @IBAction func loadSwiftStringInJS(_ sender: Any) {

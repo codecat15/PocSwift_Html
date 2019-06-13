@@ -36,39 +36,7 @@ struct MockData
                 "Contact1": "Office:(210) 496-4198"
             ]];
     }
-
-    func getMockDataForPersonalProfile()->[String:String]{
-        return ["Name": "Peggy Smith",
-                "Relationship": "Self",
-                "Address": "11 West 69th St, Apt 9b, NY 10023",
-                "Email": "ps@test.com",
-                "Gender": "Female",
-                "Birthday": "18-Apr-1956",
-                "Weight": "150",
-                "Height": "5-2",
-                "Language Spoken": "English",
-                "Eyes": "Brown",
-                "Do you live alone?": "No",
-                "Understand English": "Yes",
-                "Friend": "No",
-                "Children": "No",
-                "Parent(s)": "No",
-                "Grandparent(s)": "No",
-                "Sibling": "No",
-                "Spouse": "Yes",
-                "Profession": "Elder Attorney and Enterpreneur",
-                "Significant Other": "No",
-                "Employed By": "The Keller legal group",
-                "Manager Phone": "212-709-8104",
-                "Marital Status": "Married",
-                "Religion Note": "Jewish-Reform Rodeph Shalom W 83rd",
-                "Veteran": "No",
-                "ID Number": "",
-                "Contact1": "Mobile:(218) 348-1111",
-                "Contact2": "Mobile:(217)348-1111",
-                "Pet(s)": "YES"]
-    }
-
+    
     func getMockDataForPets()->[[String:String]]{
         return [["Name": "Lucy",
                  "Breed": "Lab",
