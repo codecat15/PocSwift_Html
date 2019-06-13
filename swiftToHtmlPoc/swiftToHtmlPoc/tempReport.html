@@ -524,7 +524,6 @@
     debugger;
     var $scope = getScope();
     var decodedData = window.atob(reportData); // decode the string
-    console.log(decodedData);
     const parsedResponse = JSON.parse(decodedData);
     $scope.masterDataModel = {
       "doctor": parsedResponse.doctor,

@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         let reportData = MockData().getMockDataForReports()
         let serializedData = try! JSONSerialization.data(withJSONObject: reportData, options: [])
        let encodedString = serializedData.base64EncodedString()
-       // let encodedData = String(data: serializedData, encoding: String.Encoding.utf8)
         self.pocWebView.evaluateJavaScript("renderReportData('\(encodedString)')") { (anyObject, error) in
             if error != nil{
                 debugPrint(error!)
