@@ -16,13 +16,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let htmlFile = Bundle.main.path(forResource: "tempReport", ofType: "html")
+        let htmlFile = Bundle.main.path(forResource: "learning_footer", ofType: "html")
         let html = try? String(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8)
         self.pocWebView.loadHTMLString(html!, baseURL: Bundle.main.bundleURL)
     }
 
     @IBAction func loadSwiftStringInJS(_ sender: Any) {
-        loadSwiftContentToJavascript()
+        let pdfFilePath = self.pocWebView.exportAsPdf()
+        debugPrint(pdfFilePath)
+        //loadSwiftContentToJavascript()
     }
 
     func loadSwiftContentToJavascript(){
@@ -33,7 +35,7 @@ class ViewController: UIViewController {
 
         let reportData = MockData().getMockDataForReports()
         let serializedData = try! JSONSerialization.data(withJSONObject: reportData, options: [])
-       let encodedString = serializedData.base64EncodedString()
+        let encodedString = serializedData.base64EncodedString()
         self.pocWebView.evaluateJavaScript("renderReportData('\(encodedString)')") { (anyObject, error) in
             if error != nil{
                 debugPrint(error!)
