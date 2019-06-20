@@ -17,21 +17,24 @@ extension WKWebView {
      3. Footer is messed up
      4. */
 
+    
     func exportAsPdf() -> String {
         let pdfData = createPdfDataContent(printFormatter: self.viewPrintFormatter())
         return self.saveWebViewPdf(data: pdfData)
     }
 
     func createPdfDataContent(printFormatter: UIViewPrintFormatter) -> NSMutableData {
-        let originalBounds = self.bounds
-        self.bounds = CGRect(x: originalBounds.origin.x, y: bounds.origin.y, width: self.bounds.size.width, height: self.scrollView.contentSize.height)
-        let pdfPageFrame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.scrollView.contentSize.height)
-
+        let A4PageWidth: CGFloat = 595
+        let A4PageHeight: CGFloat = 827
+        
+     //   self.bounds = CGRect(x: originalBounds.origin.x, y: bounds.origin.y, width: self.bounds.size.width, height: self.scrollView.contentSize.height)
+        let pdfPageFrame = CGRect(x: 0, y: 0, width: A4PageWidth, height: A4PageHeight)
         let printPageRenderer = UIPrintPageRenderer()
         printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
-        printPageRenderer.setValue(NSValue(cgRect: UIScreen.main.bounds), forKey: "paperRect")
-        printPageRenderer.setValue(NSValue(cgRect: pdfPageFrame), forKey: "printableRect")
-        self.bounds = originalBounds //bring back the HTML to it's OG rect form
+        printPageRenderer.setValue(NSValue(cgRect: pdfPageFrame), forKey: "paperRect")
+        printPageRenderer.setValue(NSValue(cgRect: pdfPageFrame.insetBy(dx: 0.0, dy: 0.0)), forKey: "printableRect")
+       
+       // self.bounds = originalBounds //bring back the HTML to it's OG rect form
         return printPageRenderer.generatePdfData()
     }
 
