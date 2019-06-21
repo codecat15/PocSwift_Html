@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test title</title>
+    <!-- http://www.jessicaschillinger.us/2017/blog/print-repeating-header-browser/ -->
+    <!-- https://www.ryadel.com/en/css3-media-query-target-only-ie-ie6-ie11-firefox-chrome-safari-edge/ -->
+    <!-- apple does not support thead -->
+    <!-- https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .header {
+        height: 40px;
+        width: 100%;
+        background-color: gray;
+        top: 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        /* -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; */
+      }
+      .footer {
+        height: 40px;
+        bottom: 0;
+        width: 100%;
+        background-color: gray;
+        border-top: 1px solid #ddd;
+        /* -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px; */
+      }
+
+      /* print only */
+      @media print {
+        div {
+          page-break-inside: avoid;
+        }
+
+        /* .page-content div {
+          width: auto !important;
+          max-width: 99%;
+        } */
+
+        header {
+          position: fixed;
+          top: 0;
+          text-align: center;
+          height: 40px;
+          background-color: gray;
+        }
+
+        footer {
+          position: fixed;
+          height: 40px;
+          bottom: 0;
+          background-color: gray;
+          width: 100%;
+        }
+        .masterDiv {
+          margin-top: 40px;
+        }
+        /* .print:last-child {
+          page-break-after: auto;
+        } */
+
+        html,
+        body {
+          height: 100vh;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: hidden !important;
+        }
+
+        #print-foot:after {
+          counter-increment: page;
+          content: counter(page);
+        }
+        /* #print-footer {
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 10px;
+        } */
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    ng-app="myApp"
+    ng-controller="myCtrl"
+    style="font-family:Lato ; font-size:16px; line-height:20px; margin:0; padding:0 0 30px; background-color: #F3F3F3; width:1000px; margin:0 auto;"
+  >
+    <!-- Header title to repeat on all page -->
+    <header class="header">I am header</header>
+    <div id="report-master-tag" class="masterDiv">
+      <!-- Doctors and Other health care div -->
+      <div>
+        <div id="doctor-header" ng-if="masterDataModel.doctor.length > 0">
+          <div style="padding:20px 0;">
+            <img
+              src="personal-profile.png"
+              style="display:inline-block; vertical-align:middle; width:5%;"
+            />
+            <span
+              style="display:inline-block; color: #2AABE1; font-weight: 400; font-size:19px; vertical-align:middle; margin-left:10px;"
+              >Doctors & Other Health Care Professionals</span
+            >
+          </div>
+          <div
+            id="personal-relationship"
+            style="margin:0; margin-top: 30px; margin-bottom: 10px; padding: 15px; background-color:#fff; border:2px solid #ddd; border-radius:10px;"
+            ng-repeat="user in masterDataModel.doctor"
+          >
+            <div
+              class="contentDiv"
+              style="width:47%; float:left; padding: 0 10px; margin:0 0 10px;"
+              ng-repeat="(key, value) in user"
+            >
+              <label style="display:block; font-size:14px; color: #747474;">{{
+                key + ":"
+              }}</label>
+              <span
+                id="user-name"
+                style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd;"
+                ng-if="value.length > 0"
+                >{{ value }}</span
+              >
+              <span
+                id="user-name"
+                style="display:block; width:100%; padding:10px 0; border-bottom:1px solid #ddd; color:#737373"
+                ng-if="value.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <div class="clearfix" style="clear:both; display:block;
+            content:"";">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer starts here -->
+    <footer class="footer">
+      <div>
+        <div style="float:left; padding:10px" id="print-footer">
+          <strong
+            style=" display:inline-block; vertical-align:middle; margin-left:10px;"
+            >www.Google.com</strong
+          >
+        </div>
+        <div style="float:right; width:auto; padding:10px 0; ">
+          <strong
+            id="print-foot"
+            style="vertical-align:middle; display:inline-block; margin-right:10px;"
+            >Page:
+          </strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", function($scope) {
+      $scope.todayDate = new Date().toISOString().slice(0, 10);
+      var doctorModel = [
+        {
+          Speciality: "Gynechologist",
+          Name: "Dr Jill Fishbane-Mayer-Gyno",
+          Address: "4 East 95th St 1a NY NY USA",
+          Website: "",
+          "Medical Practice Name": "",
+          "Hospital Affiliations": "",
+          "In Network Status": "",
+          "Last Seen": "",
+          "Electionic Health Record Link": "",
+          Notes: "",
+          Contact1: "Office:(212) 348-1111",
+          Contact2: "Mobile:(212)348-1111"
+        },
+        {
+          Speciality: "Gynechologist",
+          Name: "Dr Bruce-Mayer-Gyno",
+          Address: "45 East 95th St 1a NY NY USA",
+          Website: "",
+          "Medical Practice Name": "",
+          "Hospital Affiliations": "",
+          "In Network Status": "",
+          "Last Seen": "",
+          "Electionic Health Record Link": "",
+          Notes: "",
+          Contact1: "Office:(218) 348-1111",
+          Contact2: "Mobile:(217)348-1111"
+        },
+        {
+          Speciality: "Gynechologist",
+          Name: "Dr Tony Stark",
+          Address: "435 East 95th St 1a NY NY USA",
+          Website: "",
+          "Medical Practice Name": "",
+          "Hospital Affiliations": "",
+          "In Network Status": "",
+          "Last Seen": "",
+          "Electionic Health Record Link": "",
+          Notes: "",
+          Contact1: "Office:(218) 348-1111",
+          Contact2: "Mobile:(217)348-1111"
+        },
+        {
+          Speciality: "Gynechologist",
+          Name: "Dr Bruce Banner",
+          Address: "415 East 95th St 1a NY NY USA",
+          Website: "",
+          "Medical Practice Name": "",
+          "Hospital Affiliations": "",
+          "In Network Status": "",
+          "Last Seen": "",
+          "Electionic Health Record Link": "",
+          Notes: "",
+          Contact1: "Office:(218) 348-1111",
+          Contact2: "Mobile:(217)348-1111"
+        }
+      ];
+
+      $scope.doctorModelList = doctorModel;
+
+      $scope.masterDataModel = {
+        doctor: $scope.doctorModelList
+      };
+    });
+  </script>
+</html>
