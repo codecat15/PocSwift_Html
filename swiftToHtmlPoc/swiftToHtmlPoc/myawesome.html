@@ -20,8 +20,7 @@
                 width: 1000px;
                 margin: 0 auto;
             }
-        #page-header,
-        #page-footer {
+        #page-header {
             width: 100%;
             background-color: gray;
             text-align: center;
@@ -33,11 +32,11 @@
             top: 0;
         }
 
-        #page-footer {
-            bottom: 0;
-            margin-bottom: 40px;
-            page-break-after: always;
-        }
+        /* #page-footer {
+         bottom: 0;
+         margin-bottom: 40px;
+         page-break-after: always;
+         } */
 
         #page-header-image {
             width: 100%;
@@ -56,8 +55,7 @@
         #content-div {
             width: 47%;
             padding: 0 10px;
-            /* for some reason if i use float left the footer covers the content of the html;
-             float: left;  */
+            float: left;
             margin: 0 0 10px;
         }
 
@@ -72,8 +70,6 @@
         }
 
         #page-body {
-            background-color: #fff;
-            border: 1px solid #ddd;
             border-radius: 10px;
             margin-bottom: 20px;
             padding-left: 20px;
@@ -82,6 +78,7 @@
         #doctor-content {
             margin-top: 30px;
             margin-bottom: 30px;
+            border: 2px solid #ddd;
         }
 
         label {
@@ -100,9 +97,19 @@
 
         #span-empty-field {
             color: #747474;
-            font-weight: bold;
+            display: block;
+            width: 100%;
             padding: 10px 0;
             border-bottom: 3px solid #ddd;
+            font-weight: bold;
+        }
+
+        #report-type {
+            display: inline-block;
+            color: #2aabe1;
+            font-size: 25px;
+            vertical-align: middle;
+            margin-left: 10px;
         }
 
         .clearfix {
@@ -117,7 +124,6 @@
         }
         </style>
     </head>
-    <!-- TODO: The html can have one model and have logic to render the entire HTML than accepting multiple models -->
 
     <body
         ng-app="myApp"
@@ -138,8 +144,7 @@
                     src="https://static.thenounproject.com/png/157453-200.png"
                     style="display:inline-block; vertical-align:middle; width:5%;"
                     />
-                    <span
-                        style="display:inline-block; color: #2AABE1; font-weight: 400; font-size:16px; vertical-align:middle; margin-left:10px;"
+                    <span id="report-type"
                         >Doctors & Other Health Care Professionals</span
                         >
                         </div>
@@ -331,11 +336,11 @@
                         Name: "Dr Jill Fishbane-Mayer-Gyno",
                         Address: "4 East 95th St 1a NY NY USA",
                         Website: "",
-                        "Medical Practice Name": "",
-                        "Hospital Affiliations": "",
-                        "In Network Status": "",
-                        "Last Seen": "",
-                        "Electionic Health Record Link": "",
+                        medicalPracticeName: "",
+                        HospitalAffiliations: "",
+                        inNetworkStatus: "",
+                        lastSceen: "",
+                        electronicHealthRecordLink: "",
                         Notes: "Test notes",
                         Contact1: "Office:(212) 348-1111",
                         Contact2: "Mobile:(212)348-1111"
@@ -345,12 +350,12 @@
                         Name: "Dr Bruce-Mayer-Gyno",
                         Address: "45 East 95th St 1a NY NY USA",
                         Website: "",
-                        "Medical Practice Name": "",
-                        "Hospital Affiliations": "",
-                        "In Network Status": "",
-                        "Last Seen": "",
-                        "Electionic Health Record Link": "",
-                        Notes: "",
+                        medicalPracticeName: "",
+                        HospitalAffiliations: "",
+                        inNetworkStatus: "",
+                        lastSceen: "",
+                        electronicHealthRecordLink: "",
+                        Notes: "Test notes",
                         Contact1: "Office:(218) 348-1111",
                         Contact2: "Mobile:(217)348-1111"
                         },
@@ -359,12 +364,12 @@
                         Name: "Dr Tony Stark",
                         Address: "435 East 95th St 1a NY NY USA",
                         Website: "",
-                        "Medical Practice Name": "",
-                        "Hospital Affiliations": "",
-                        "In Network Status": "",
-                        "Last Seen": "",
-                        "Electionic Health Record Link": "",
-                        Notes: "",
+                        medicalPracticeName: "",
+                        HospitalAffiliations: "",
+                        inNetworkStatus: "",
+                        lastSceen: "",
+                        electronicHealthRecordLink: "",
+                        Notes: "Test notes",
                         Contact1: "Office:(218) 348-1111",
                         Contact2: "Mobile:(217)348-1111"
                         },
@@ -373,12 +378,12 @@
                         Name: "Dr Bruce Banner",
                         Address: "415 East 95th St 1a NY NY USA",
                         Website: "",
-                        "Medical Practice Name": "",
-                        "Hospital Affiliations": "",
-                        "In Network Status": "",
-                        "Last Seen": "",
-                        "Electionic Health Record Link": "",
-                        Notes: "",
+                        medicalPracticeName: "",
+                        HospitalAffiliations: "",
+                        inNetworkStatus: "",
+                        lastSceen: "",
+                        electronicHealthRecordLink: "",
+                        Notes: "Test notes",
                         Contact1: "Office:(218) 348-1111",
                         Contact2: "Mobile:(217)348-1111"
                         }
