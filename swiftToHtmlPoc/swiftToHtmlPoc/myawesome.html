@@ -6,7 +6,7 @@
     <!-- Bug in webKit for tfoot: https://bugs.webkit.org/show_bug.cgi?id=17205 -->
     <head>
         <meta charset="utf-8" />
-        <title>Test title</title>
+        <title>Mylo reports</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- <meta name="keywords" content="HTML, Meta Tags, Metadata" /> -->
         <style type="text/css">
@@ -32,11 +32,11 @@
             top: 0;
         }
 
-        /* #page-footer {
-         bottom: 0;
-         margin-bottom: 40px;
-         page-break-after: always;
-         } */
+        #page-footer {
+            bottom: 0;
+            margin-bottom: 40px;
+            page-break-after: always;
+        }
 
         #page-header-image {
             width: 100%;
@@ -121,15 +121,54 @@
             clear: both;
             display: block;
         }
+        #top-header {
+            width: auto;
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            flex-wrap: space-between;
+        }
+        #user-icon {
+            float: left;
+            width: 40px;
+            padding: 15px;
+        }
+        #user-name-container {
+            justify-content: flex-start;
+            flex: 1;
+            padding: 15px 0px;
+        }
+        #today-date {
+            padding: 15px 0px;
+            justify-content: flex-end;
+        }
+
+        #app-logo {
+            flex: 1;
+            justify-content: center;
+            margin-right: 100px;
+        }
         </style>
     </head>
 
-    <body
-        ng-app="myApp"
-        ng-controller="myCtrl"
-        style=" font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size:16px; line-height:20px; margin:0; padding:0 0 30px; background-color: #F3F3F3; width:1000px; margin:0 auto;"
-        >
+    <body ng-app="myApp" ng-controller="myCtrl">
         <div id="page-main-body">
+            <!-- Top most header of the report -->
+            <div id="top-header">
+                <div id="user-name-container">
+                    <img src="user-icon.png" style="vertical-align:middle;" />
+                    <strong id="user-name">{{ masterDataModel.username }}</strong>
+                </div>
+
+                <div id="app-logo">
+                    <img src="header-logo.png" />
+                </div>
+
+                <div id="today-date">
+                    <img src="calendar-icon.png" style="vertical-align:middle;" />
+                    <strong>{{ todayDate }}</strong>
+                </div>
+            </div>
             <div id="container" ng-repeat="doctor in masterDataModel.doctor">
                 <div id="page-header" ng-hide="$odd">
                     <strong class="centered-header-image-text"
@@ -147,8 +186,13 @@
                         >Doctors & Other Health Care Professionals</span
                         >
                         </div>
-
-                        <div id="page-body">
+                        <!-- this is a hack because the angular digest cycle does not appreicate
+                        counter value being changed at runtime so, if the array element is a
+                        collection of count of odd numbers then we add one more element in the
+                        script tag.
+                        I tried using $last but since we use the same div footer it's difficult
+                        to add ng-show and ng-hide to same element and hence the hack -->
+                        <div id="page-body" ng-if="doctor.Name.length > 0">
                         <div id="doctor-content">
                         <!-- Doctor Specialist field -->
                         <div id="content-div">
@@ -287,7 +331,6 @@
                         >Field is Empty</span
                         >
                         </div>
-                        <!-- Main div end here -->
                         </div>
                         </div>
 
@@ -360,8 +403,8 @@
                         },
                         {
                         Speciality: "Gynechologist",
-                        Name: "Dr Tony Stark",
-                        Address: "435 East 95th St 1a NY NY USA",
+                        Name: "Dr Bruce banner",
+                        Address: "4 East 95th St 1a NY NY USA",
                         Website: "",
                         medicalPracticeName: "",
                         HospitalAffiliations: "",
@@ -369,27 +412,15 @@
                         lastSceen: "",
                         electronicHealthRecordLink: "",
                         Notes: "Test notes",
-                        Contact1: "Office:(218) 348-1111",
-                        Contact2: "Mobile:(217)348-1111"
+                        Contact1: "Office:(212) 348-1111",
+                        Contact2: "Mobile:(212)348-1111"
                         },
-                        {
-                        Speciality: "Gynechologist",
-                        Name: "Dr Bruce Banner",
-                        Address: "415 East 95th St 1a NY NY USA",
-                        Website: "",
-                        medicalPracticeName: "",
-                        HospitalAffiliations: "",
-                        inNetworkStatus: "",
-                        lastSceen: "",
-                        electronicHealthRecordLink: "",
-                        Notes: "Test notes",
-                        Contact1: "Office:(218) 348-1111",
-                        Contact2: "Mobile:(217)348-1111"
-                        }
+                        {}
                         ];
 
                         $scope.masterDataModel = {
-                        doctor: doctorModel
+                        doctor: doctorModel,
+                        username: "Bruce Wyane"
                         };
 
                         $scope.isEmpty = function(dictionary) {
