@@ -16,17 +16,39 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let htmlFile = Bundle.main.path(forResource: "learning-table", ofType: "html")
+        let htmlFile = Bundle.main.path(forResource: "myawesome", ofType: "html")
         let html = try? String(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8)
         self.pocWebView.loadHTMLString(html!, baseURL: Bundle.main.bundleURL)
     }
 
     @IBAction func loadSwiftStringInJS(_ sender: Any) {
+       // loadSwiftContentToJavascript()
         let pdfFilePath = self.pocWebView.exportAsPdf()
         debugPrint(pdfFilePath)
-        //loadSwiftContentToJavascript()
     }
 
+    @IBAction func displayPrintController(_ sender: Any) {
+
+        self.pocWebView.evaluateJavaScript("document.documentElement.outerHTML.toString()",
+                                   completionHandler: { (html: Any?, error: Error?) in
+                                    let markupText = html as! String
+                                    let printInfo = UIPrintInfo(dictionary:nil)
+                                    printInfo.outputType = .general
+                                    printInfo.jobName = "Printing MYLO Reports"
+                                    printInfo.orientation = .portrait
+
+                                    let printController = UIPrintInteractionController.shared
+                                    printController.printInfo = printInfo
+
+                                    let formatter = UIMarkupTextPrintFormatter(markupText: markupText)
+                                    formatter.perPageContentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
+                                    printController.printFormatter = formatter
+
+                                    printController.printingItem = formatter
+                                    printController.present(animated: true, completionHandler: nil)
+        })
+
+    }
     func loadSwiftContentToJavascript(){
 
         //Pending items

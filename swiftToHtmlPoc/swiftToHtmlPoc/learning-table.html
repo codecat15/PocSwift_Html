@@ -49,10 +49,10 @@
           page-break-inside: avoid;
         }
 
-        /* .page-content div {
-          width: auto !important;
-          max-width: 99%;
-        } */
+        span {
+          color: red;
+          background-color: gray;
+        }
 
         header {
           position: fixed;
@@ -69,12 +69,10 @@
           background-color: gray;
           width: 100%;
         }
+
         .masterDiv {
           margin-top: 40px;
         }
-        /* .print:last-child {
-          page-break-after: auto;
-        } */
 
         html,
         body {
@@ -88,11 +86,6 @@
           counter-increment: page;
           content: counter(page);
         }
-        /* #print-footer {
-          display: inline-block;
-          vertical-align: middle;
-          margin-left: 10px;
-        } */
       }
     </style>
     <link

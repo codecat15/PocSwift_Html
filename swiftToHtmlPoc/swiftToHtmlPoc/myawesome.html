@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+    <!-- <script src="angular.min.js"></script> -->
+    <!-- Bug in webKit for tfoot: https://bugs.webkit.org/show_bug.cgi?id=17205 -->
+    <head>
+        <meta charset="utf-8" />
+        <title>Test title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <meta name="keywords" content="HTML, Meta Tags, Metadata" /> -->
+        <style type="text/css">
+            body {
+                font-family: Lato;
+                font-size: 16px;
+                line-height: 20px;
+                margin: 0;
+                padding: 0 0 30px;
+                background-color: #f3f3f3;
+                width: 1000px;
+                margin: 0 auto;
+            }
+        #page-header,
+        #page-footer {
+            width: 100%;
+            background-color: gray;
+            text-align: center;
+            margin-right: 40px;
+            position: relative;
+        }
+
+        #page-header {
+            top: 0;
+        }
+
+        #page-footer {
+            bottom: 0;
+            margin-bottom: 40px;
+            page-break-after: always;
+        }
+
+        #page-header-image {
+            width: 100%;
+        }
+
+        .centered-header-image-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 30px;
+            transform: translate(-50%, -50%);
+        }
+
+        #content-div {
+            width: 47%;
+            padding: 0 10px;
+            /* for some reason if i use float left the footer covers the content of the html;
+             float: left;  */
+            margin: 0 0 10px;
+        }
+
+        #company-website-footer {
+            text-align: left;
+            margin-left: 10px;
+        }
+
+        #page-number {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        #page-body {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        #doctor-content {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #747474;
+        }
+
+        #label-data-content {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            border-bottom: 3px solid #ddd;
+            font-weight: bold;
+        }
+
+        #span-empty-field {
+            color: #747474;
+            font-weight: bold;
+            padding: 10px 0;
+            border-bottom: 3px solid #ddd;
+        }
+
+        .clearfix {
+            clear: both;
+            display: block;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+        </style>
+    </head>
+    <!-- TODO: The html can have one model and have logic to render the entire HTML than accepting multiple models -->
+
+    <body
+        ng-app="myApp"
+        ng-controller="myCtrl"
+        style=" font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size:16px; line-height:20px; margin:0; padding:0 0 30px; background-color: #F3F3F3; width:1000px; margin:0 auto;"
+        >
+        <div id="page-main-body">
+            <div id="container" ng-repeat="doctor in masterDataModel.doctor">
+                <div id="page-header" ng-hide="$odd">
+                    <strong class="centered-header-image-text"
+                        >SPECIALITY CONTACTS</strong
+                    >
+                    <img id="page-header-image" src="gradiant.png" />
+                </div>
+
+                <div style="padding:20px 0;" ng-hide="$odd">
+                    <img
+                    src="https://static.thenounproject.com/png/157453-200.png"
+                    style="display:inline-block; vertical-align:middle; width:5%;"
+                    />
+                    <span
+                        style="display:inline-block; color: #2AABE1; font-weight: 400; font-size:16px; vertical-align:middle; margin-left:10px;"
+                        >Doctors & Other Health Care Professionals</span
+                        >
+                        </div>
+
+                        <div id="page-body">
+                        <div id="doctor-content">
+                        <!-- Doctor Specialist field -->
+                        <div id="content-div">
+                        <label>Speciality:</label>
+                        <span
+                        id="label-data-content"
+                        ng-if="doctor.Speciality.length > 0"
+                        >{{ doctor.Speciality }}</span
+                        >
+                        <span id="span-empty-field" ng-if="doctor.Speciality.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+                        <!-- Doctor Name field -->
+                        <div id="content-div">
+                        <label>Name:</label>
+                        <span id="label-data-content" ng-if="doctor.Name.length > 0">{{
+                        doctor.Name
+                        }}</span>
+                        <span id="span-empty-field" ng-if="doctor.Name.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+                        <!-- Doctor Address field -->
+                        <div id="content-div">
+                        <label>Address:</label>
+                        <span id="label-data-content" ng-if="doctor.Address.length > 0">{{
+                        doctor.Address
+                        }}</span>
+                        <span id="span-empty-field" ng-if="doctor.Address.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+                        <!-- Doctor Website field -->
+                        <div id="content-div">
+                        <label>Website:</label>
+                        <span id="label-data-content" ng-if="doctor.Website.length > 0">{{
+                        doctor.Website
+                        }}</span>
+                        <span id="span-empty-field" ng-if="doctor.Website.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+
+                        <!-- Doctor Medical practice field -->
+                        <div id="content-div">
+                        <label>Medical Practice Name:</label>
+                        <span ng-if="doctor.medicalPracticeName.length > 0">{{
+                        doctor.medicalPracticeName
+                        }}</span>
+                        <span
+                        id="span-empty-field"
+                        ng-if="doctor.medicalPracticeName.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+                        <!-- Doctor Hospital Affiliations field -->
+                        <div id="content-div">
+                        <label>Hospital Affiliations:</label>
+                        <span id="label-data-content">TBD</span>
+                        </div>
+                        <!-- Doctor In Network Status field -->
+                        <div id="content-div">
+                        <label>In Network Status:</label>
+                        <span
+                        id="label-data-content"
+                        ng-if="doctor.inNetworkStatus.length > 0"
+                        >{{ doctor.inNetworkStatus }}</span
+                        >
+                        <span
+                        id="span-empty-field"
+                        ng-if="doctor.inNetworkStatus.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+                        <!-- Doctor Last Seen: field -->
+                        <div id="content-div">
+                        <label>Last Seen:</label>
+                        <span
+                        id="label-data-content"
+                        ng-if="doctor.lastSceen.length > 0"
+                        >{{ doctor.lastSceen }}</span
+                        >
+                        <span id="span-empty-field" ng-if="doctor.lastSceen.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+
+                        <!-- Doctor Electronic Health Record Link field -->
+                        <div id="content-div">
+                        <label>Electronic Health Record Link</label>
+                        <span
+                        id="label-data-content"
+                        ng-if="doctor.electronicHealthRecordLink.length > 0"
+                        >{{ doctor.electronicHealthRecordLink }}</span
+                        >
+                        <span
+                        id="span-empty-field"
+                        ng-if="doctor.electronicHealthRecordLink.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+
+                        <!-- Doctor Notes field -->
+                        <div id="content-div">
+                        <label>Notes:</label>
+                        <span id="label-data-content" ng-if="doctor.Notes.length > 0">{{
+                        doctor.Notes
+                        }}</span>
+                        <span id="span-empty-field" ng-if="doctor.Notes.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+                        <!-- Doctor Contact1 field -->
+                        <!-- TODO: Need to make this field dynamic based on a collection -->
+                        <div id="content-div">
+                        <label>Contact1:</label>
+                        <span
+                        id="label-data-content"
+                        ng-if="doctor.Contact1.length > 0"
+                        >{{ doctor.Contact1 }}</span
+                        >
+                        <span id="span-empty-field" ng-if="doctor.Contact1.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+                        <!-- Doctor Contact2: field -->
+                        <div id="content-div">
+                        <label>Contact2:</label>
+                        <span
+                        id="label-data-content"
+                        ng-if="doctor.Contact2.length > 0"
+                        >{{ doctor.Contact2 }}</span
+                        >
+                        <span id="span-empty-field" ng-if="doctor.Contact2.length === 0"
+                        >Field is Empty</span
+                        >
+                        </div>
+                        <!-- Main div end here -->
+                        </div>
+                        </div>
+
+                        <div id="page-footer" ng-hide="$even">
+                        <p id="company-website-footer">WWW.MINDYOUR-LOVEDONES.COM</p>
+                        <p id="page-number">Page: 1</p>
+                        </div>
+                        </div>
+                        </div>
+                        </body>
+
+                        <script>
+                        function getScope() {
+                        var outside = angular
+                        .element(document.getElementById("report-master-tag"))
+                        .scope();
+                        return outside;
+                        }
+
+                        function renderReportData(reportData) {
+                        debugger;
+                        var $scope = getScope();
+                        var decodedData = window.atob(reportData); // decode the string
+                        const parsedResponse = JSON.parse(decodedData);
+                        $scope.masterDataModel = {
+                        doctor: parsedResponse.doctor,
+                        hospital: parsedResponse.hospital,
+                        pharmacy: parsedResponse.pharmacy,
+                        personalProfile: parsedResponse.personalProfile,
+                        pet: parsedResponse.pet,
+                        allergy: parsedResponse.allergy,
+                        username: parsedResponse.username
+                        };
+                        $scope.userProfile = parsedResponse.personalProfile;
+                        $scope.$apply();
+                        }
+
+                        var app = angular.module("myApp", []);
+                        app.controller("myCtrl", function($scope) {
+                        $scope.todayDate = new Date().toISOString().slice(0, 10);
+
+                        var doctorModel = [
+                        {
+                        Speciality: "Gynechologist",
+                        Name: "Dr Jill Fishbane-Mayer-Gyno",
+                        Address: "4 East 95th St 1a NY NY USA",
+                        Website: "",
+                        "Medical Practice Name": "",
+                        "Hospital Affiliations": "",
+                        "In Network Status": "",
+                        "Last Seen": "",
+                        "Electionic Health Record Link": "",
+                        Notes: "Test notes",
+                        Contact1: "Office:(212) 348-1111",
+                        Contact2: "Mobile:(212)348-1111"
+                        },
+                        {
+                        Speciality: "Gynechologist",
+                        Name: "Dr Bruce-Mayer-Gyno",
+                        Address: "45 East 95th St 1a NY NY USA",
+                        Website: "",
+                        "Medical Practice Name": "",
+                        "Hospital Affiliations": "",
+                        "In Network Status": "",
+                        "Last Seen": "",
+                        "Electionic Health Record Link": "",
+                        Notes: "",
+                        Contact1: "Office:(218) 348-1111",
+                        Contact2: "Mobile:(217)348-1111"
+                        },
+                        {
+                        Speciality: "Gynechologist",
+                        Name: "Dr Tony Stark",
+                        Address: "435 East 95th St 1a NY NY USA",
+                        Website: "",
+                        "Medical Practice Name": "",
+                        "Hospital Affiliations": "",
+                        "In Network Status": "",
+                        "Last Seen": "",
+                        "Electionic Health Record Link": "",
+                        Notes: "",
+                        Contact1: "Office:(218) 348-1111",
+                        Contact2: "Mobile:(217)348-1111"
+                        },
+                        {
+                        Speciality: "Gynechologist",
+                        Name: "Dr Bruce Banner",
+                        Address: "415 East 95th St 1a NY NY USA",
+                        Website: "",
+                        "Medical Practice Name": "",
+                        "Hospital Affiliations": "",
+                        "In Network Status": "",
+                        "Last Seen": "",
+                        "Electionic Health Record Link": "",
+                        Notes: "",
+                        Contact1: "Office:(218) 348-1111",
+                        Contact2: "Mobile:(217)348-1111"
+                        }
+                        ];
+
+                        $scope.masterDataModel = {
+                        doctor: doctorModel
+                        };
+
+                        $scope.isEmpty = function(dictionary) {
+                        return Object.keys(dictionary).length === 0;
+                        };
+                        });
+                        </script>
+</html>
+

@@ -33,14 +33,24 @@
                                     <action selector="loadSwiftStringInJS:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M4N-Sw-cjq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIW-bM-kdX">
+                                <rect key="frame" x="338" y="80" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="displayPrintController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hlI-El-Ykk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="b74-ib-Ss3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3AK-im-EXf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lVm-Z5-ycn" secondAttribute="trailing" symbolic="YES" id="5tc-st-zHU"/>
+                            <constraint firstItem="ZIW-bM-kdX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lVm-Z5-ycn" secondAttribute="trailing" constant="8" symbolic="YES" id="C1E-4k-ca0"/>
                             <constraint firstItem="lVm-Z5-ycn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="FFJ-ay-nAk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="b74-ib-Ss3" secondAttribute="bottom" constant="27" id="NBd-eZ-FfT"/>
                             <constraint firstItem="lVm-Z5-ycn" firstAttribute="leading" secondItem="b74-ib-Ss3" secondAttribute="leading" id="O2E-HR-Ngq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZIW-bM-kdX" secondAttribute="trailing" constant="30" id="dJn-5S-4g0"/>
+                            <constraint firstItem="ZIW-bM-kdX" firstAttribute="baseline" secondItem="lVm-Z5-ycn" secondAttribute="baseline" id="kOq-Tx-27O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b74-ib-Ss3" secondAttribute="trailing" constant="20" id="l63-QG-nrp"/>
                             <constraint firstItem="b74-ib-Ss3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="y79-3W-bTP"/>
                         </constraints>
@@ -52,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="117.85714285714285"/>
+            <point key="canvasLocation" x="-759" y="72"/>
         </scene>
     </scenes>
 </document>
