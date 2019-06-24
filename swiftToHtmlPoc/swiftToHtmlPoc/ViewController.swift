@@ -23,8 +23,8 @@ class ViewController: UIViewController {
 
     @IBAction func loadSwiftStringInJS(_ sender: Any) {
         loadSwiftContentToJavascript()
-      //  let pdfFilePath = self.pocWebView.exportAsPdf()
-        //debugPrint(pdfFilePath)
+        let pdfFilePath = self.pocWebView.exportAsPdf()
+        debugPrint(pdfFilePath)
     }
 
     @IBAction func displayPrintController(_ sender: Any) {
