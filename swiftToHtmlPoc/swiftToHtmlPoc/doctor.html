@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-  <!-- <script src="angular.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" /> -->
-  <!-- <script src="angular.min.js"></script> -->
-  <!-- Bug in webKit for tfoot: https://bugs.webkit.org/show_bug.cgi?id=17205 -->
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+  <script src="angular.min.js"></script>
   <head>
     <meta charset="utf-8" />
     <title>Mylo reports</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <meta name="keywords" content="HTML, Meta Tags, Metadata" /> -->
     <style type="text/css">
       body {
+        font-family: Lato;
         font-size: 16px;
         line-height: 20px;
         margin: 0;
@@ -34,8 +30,12 @@
 
       #page-footer {
         bottom: 0;
-        margin-bottom: 40px;
-        page-break-after: always;
+        /* page-break-after: always; */
+        width: 100%;
+        height: 40px;
+        display: flex;
+        background-color: #4b4b4b;
+        position: relative;
       }
 
       #page-header-image {
@@ -52,32 +52,28 @@
         transform: translate(-50%, -50%);
       }
 
-      #content-div {
-        width: 47%;
-        padding: 0 10px;
-        float: left;
-        margin: 0 0 10px;
-      }
-
       #company-website-footer {
         text-align: left;
         margin-left: 10px;
+        justify-content: flex-start;
+        color: #8e8e8e;
       }
 
       #page-number {
-        text-align: right;
-        margin-right: 10px;
+        /* I am not sure how to get the margin adjust by itself */
+        margin-left: 590px;
+        justify-content: flex-end;
+        margin-right: 30px;
+        color: #8e8e8e;
       }
 
       #page-body {
         border-radius: 10px;
         margin-bottom: 20px;
         padding-left: 20px;
-      }
-
-      #doctor-content {
-        margin-top: 30px;
-        margin-bottom: 30px;
+        background-color: white;
+        border-radius: 20px;
+        border: 2px solid gray;
       }
 
       label {
@@ -128,6 +124,7 @@
         display: flex;
         flex-wrap: space-between;
       }
+
       #user-icon {
         float: left;
         width: 40px;
@@ -148,6 +145,18 @@
         justify-content: center;
         margin-right: 100px;
       }
+
+      #content-div {
+        width: 47%;
+        padding: 0 10px;
+        display: inline-block;
+        margin: 0 0 10px;
+      }
+
+      #doctor-content {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
     </style>
   </head>
 
@@ -157,7 +166,7 @@
       <div id="top-header">
         <div id="user-name-container">
           <img src="user-icon.png" style="vertical-align:middle;" />
-          <strong id="user-name">{{ "Bruce Wyane" }}</strong>
+          <strong id="user-name">{{ masterDataModel.username }}</strong>
         </div>
 
         <div id="app-logo">
@@ -179,7 +188,7 @@
 
         <div style="padding:20px 0;" ng-hide="$odd">
           <img
-            src="https://static.thenounproject.com/png/157453-200.png"
+            src="personal-profile.png"
             style="display:inline-block; vertical-align:middle; width:5%;"
           />
           <span id="report-type"
@@ -187,11 +196,11 @@
           >
         </div>
         <!-- this is a hack because the angular digest cycle does not appreicate
-                        counter value being changed at runtime so, if the array element is a
-                        collection of count of odd numbers then we add one more element in the
-                        script tag.
-                        I tried using $last but since we use the same div footer it's difficult
-                        to add ng-show and ng-hide to same element and hence the hack -->
+        counter value being changed at runtime so, if the array element is a
+        collection of count of odd numbers then we add one more element in the
+        script tag.
+         I tried using $last but since we use the same div footer it's difficult
+        to add ng-show and ng-hide to same element and hence the hack -->
         <div id="page-body" ng-if="doctor.name.length > 0">
           <div id="doctor-content">
             <!-- Doctor Specialist field -->
@@ -202,7 +211,7 @@
                 ng-if="doctor.speciality.length > 0"
                 >{{ doctor.speciality }}</span
               >
-              <span id="span-empty-field" ng-if="doctor.Speciality.length === 0"
+              <span id="span-empty-field" ng-if="doctor.speciality.length === 0"
                 >Field is Empty</span
               >
             </div>
@@ -220,7 +229,7 @@
             <div id="content-div">
               <label>Address:</label>
               <span id="label-data-content" ng-if="doctor.address.length > 0">{{
-                doctor.address
+                doctor.Address
               }}</span>
               <span id="span-empty-field" ng-if="doctor.address.length === 0"
                 >Field is Empty</span
@@ -299,10 +308,10 @@
             <!-- Doctor Notes field -->
             <div id="content-div">
               <label>Notes:</label>
-              <span id="label-data-content" ng-if="doctor.Notes.length > 0">{{
-                doctor.Notes
+              <span id="label-data-content" ng-if="doctor.notes.length > 0">{{
+                doctor.notes
               }}</span>
-              <span id="span-empty-field" ng-if="doctor.Notes.length === 0"
+              <span id="span-empty-field" ng-if="doctor.notes.length === 0"
                 >Field is Empty</span
               >
             </div>
@@ -312,10 +321,10 @@
               <label>Contact1:</label>
               <span
                 id="label-data-content"
-                ng-if="doctor.Contact1.length > 0"
-                >{{ doctor.Contact1 }}</span
+                ng-if="doctor.contact1.length > 0"
+                >{{ doctor.contact1 }}</span
               >
-              <span id="span-empty-field" ng-if="doctor.Contact1.length === 0"
+              <span id="span-empty-field" ng-if="doctor.contact1.length === 0"
                 >Field is Empty</span
               >
             </div>
@@ -324,10 +333,10 @@
               <label>Contact2:</label>
               <span
                 id="label-data-content"
-                ng-if="doctor.Contact2.length > 0"
-                >{{ doctor.Contact2 }}</span
+                ng-if="doctor.contact2.length > 0"
+                >{{ doctor.contact2 }}</span
               >
-              <span id="span-empty-field" ng-if="doctor.Contact2.length === 0"
+              <span id="span-empty-field" ng-if="doctor.contact2.length === 0"
                 >Field is Empty</span
               >
             </div>
@@ -355,70 +364,24 @@
       var $scope = getScope();
       var decodedData = window.atob(reportData); // decode the string
       const parsedResponse = JSON.parse(decodedData);
-      console.log(parsedResponse);
       $scope.masterDataModel = {
-        doctor: parsedResponse.doctor
-        // hospital: parsedResponse.hospital,
-        // pharmacy: parsedResponse.pharmacy,
-        // personalProfile: parsedResponse.personalProfile,
-        // pet: parsedResponse.pet,
-        // allergy: parsedResponse.allergy,
-        // username: parsedResponse.username
+        doctor: parsedResponse.doctor,
+        hospital: parsedResponse.hospital,
+        pharmacy: parsedResponse.pharmacy,
+        personalProfile: parsedResponse.personalProfile,
+        pet: parsedResponse.pet,
+        allergy: parsedResponse.allergy,
+        username: parsedResponse.username
       };
-      debugger;
+      $scope.userProfile = parsedResponse.personalProfile;
       $scope.$apply();
     }
 
     var app = angular.module("myApp", []);
     app.controller("myCtrl", function($scope) {
       $scope.todayDate = new Date().toISOString().slice(0, 10);
-      $scope.masterDataModel = [{}];
 
-      //   var doctorModel = [
-      //     {
-      //       Speciality: "Gynechologist",
-      //       Name: "Dr Jill Fishbane-Mayer-Gyno",
-      //       Address: "4 East 95th St 1a NY NY USA",
-      //       Website: "",
-      //       medicalPracticeName: "",
-      //       HospitalAffiliations: "",
-      //       inNetworkStatus: "",
-      //       lastSceen: "",
-      //       electronicHealthRecordLink: "",
-      //       Notes: "Test notes",
-      //       Contact1: "Office:(212) 348-1111",
-      //       Contact2: "Mobile:(212)348-1111"
-      //     },
-      //     {
-      //       Speciality: "Gynechologist",
-      //       Name: "Dr Bruce-Mayer-Gyno",
-      //       Address: "45 East 95th St 1a NY NY USA",
-      //       Website: "",
-      //       medicalPracticeName: "",
-      //       HospitalAffiliations: "",
-      //       inNetworkStatus: "",
-      //       lastSceen: "",
-      //       electronicHealthRecordLink: "",
-      //       Notes: "Test notes",
-      //       Contact1: "Office:(218) 348-1111",
-      //       Contact2: "Mobile:(217)348-1111"
-      //     },
-      //     {
-      //       Speciality: "Gynechologist",
-      //       Name: "Dr Bruce banner",
-      //       Address: "4 East 95th St 1a NY NY USA",
-      //       Website: "",
-      //       medicalPracticeName: "",
-      //       HospitalAffiliations: "",
-      //       inNetworkStatus: "",
-      //       lastSceen: "",
-      //       electronicHealthRecordLink: "",
-      //       Notes: "Test notes",
-      //       Contact1: "Office:(212) 348-1111",
-      //       Contact2: "Mobile:(212)348-1111"
-      //     },
-      //     {}
-      //   ];
+      $scope.masterDataModel = [{}];
 
       $scope.isEmpty = function(dictionary) {
         return Object.keys(dictionary).length === 0;

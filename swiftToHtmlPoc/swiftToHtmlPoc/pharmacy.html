@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+   <script src="angular.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Mylo reports</title>
+    <style type="text/css">
+      body {
+        font-family: Lato;
+        font-size: 16px;
+        line-height: 20px;
+        margin: 0;
+        padding: 0 0 30px;
+        background-color: #f3f3f3;
+        width: 1000px;
+        margin: 0 auto;
+      }
+      #page-header {
+        width: 100%;
+        background-color: gray;
+        text-align: center;
+        margin-right: 40px;
+        position: relative;
+      }
+
+      #page-header {
+        top: 0;
+      }
+
+      #page-footer {
+        bottom: 0;
+        page-break-after: always;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        background-color: #4b4b4b;
+        position: relative;
+      }
+
+      #page-header-image {
+        width: 100%;
+      }
+
+      .centered-header-image-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 30px;
+        transform: translate(-50%, -50%);
+      }
+
+      #company-website-footer {
+        text-align: left;
+        margin-left: 10px;
+        justify-content: flex-start;
+        color: #8e8e8e;
+      }
+
+      #page-number {
+        /* I am not sure how to get the margin adjust by itself */
+        margin-left: 590px;
+        justify-content: flex-end;
+        margin-right: 30px;
+        color: #8e8e8e;
+      }
+
+      #page-body {
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        background-color: white;
+        border-radius: 20px;
+        border: 2px solid gray;
+      }
+
+      label {
+        display: block;
+        font-size: 14px;
+        color: #747474;
+      }
+
+      #label-data-content {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 3px solid #ddd;
+        font-weight: bold;
+      }
+
+      #span-empty-field {
+        color: #747474;
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 3px solid #ddd;
+        font-weight: bold;
+      }
+
+      #report-type {
+        display: inline-block;
+        color: #2aabe1;
+        font-size: 25px;
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+
+      .clearfix {
+        clear: both;
+        display: block;
+      }
+
+      .clearfix::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      #top-header {
+        width: auto;
+        background-color: white;
+        padding: 20px;
+        display: flex;
+        flex-wrap: space-between;
+      }
+
+      #user-icon {
+        float: left;
+        width: 40px;
+        padding: 15px;
+      }
+      #user-name-container {
+        justify-content: flex-start;
+        flex: 1;
+        padding: 15px 0px;
+      }
+      #today-date {
+        padding: 15px 0px;
+        justify-content: flex-end;
+      }
+
+      #app-logo {
+        flex: 1;
+        justify-content: center;
+        margin-right: 100px;
+      }
+
+      #content-div {
+        width: 47%;
+        padding: 0 10px;
+        display: inline-block;
+        margin: 0 0 10px;
+      }
+
+      #pharmacy-content {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <div id="page-main-body">
+      <!-- Top most header of the report -->
+      <div id="top-header">
+        <div id="user-name-container">
+          <img src="user-icon.png" style="vertical-align:middle;" />
+          <strong id="user-name">{{ masterDataModel.username }}</strong>
+        </div>
+
+        <div id="app-logo">
+          <img src="header-logo.png" />
+        </div>
+
+        <div id="today-date">
+          <img src="calendar-icon.png" style="vertical-align:middle;" />
+          <strong>{{ todayDate }}</strong>
+        </div>
+      </div>
+      <div id="container" ng-repeat="pharmacy in masterDataModel.pharmacy">
+        <div id="page-header" ng-hide="$odd">
+          <strong class="centered-header-image-text"
+            >SPECIALITY CONTACTS</strong
+          >
+          <img id="page-header-image" src="gradiant.png" />
+        </div>
+
+        <div style="padding:20px 0;" ng-hide="$odd">
+          <img
+            src="https://static.thenounproject.com/png/157453-200.png"
+            style="display:inline-block; vertical-align:middle; width:5%;"
+          />
+          <span id="report-type"
+            >pharmacys & Other Health Care Professionals</span
+          >
+        </div>
+        <!-- this is a hack because the angular digest cycle does not appreicate
+        counter value being changed at runtime so, if the array element is a
+        collection of count of odd numbers then we add one more element in the
+        script tag.
+         I tried using $last but since we use the same div footer it's difficult
+        to add ng-show and ng-hide to same element and hence the hack -->
+        <div id="page-body" ng-if="pharmacy.category.length > 0">
+          <div id="pharmacy-content">
+            <!-- pharmacy Specialist field -->
+            <div id="content-div">
+              <label>Category:</label>
+              <span
+                id="label-data-content"
+                ng-if="pharmacy.category.length > 0"
+                >{{ pharmacy.category }}</span
+              >
+              <span id="span-empty-field" ng-if="pharmacy.category.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- pharmacy Name field -->
+            <div id="content-div">
+              <label>Name:</label>
+              <span id="label-data-content" ng-if="pharmacy.name.length > 0">{{
+                pharmacy.name
+              }}</span>
+              <span id="span-empty-field" ng-if="pharmacy.name.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- pharmacy Address field -->
+            <div id="content-div">
+              <label>Address:</label>
+              <span
+                id="label-data-content"
+                ng-if="pharmacy.address.length > 0"
+                >{{ pharmacy.address }}</span
+              >
+              <span id="span-empty-field" ng-if="pharmacy.address.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- pharmacy Website field -->
+            <div id="content-div">
+              <label>Website:</label>
+              <span
+                id="label-data-content"
+                ng-if="pharmacy.website.length > 0"
+                >{{ pharmacy.website }}</span
+              >
+              <span id="span-empty-field" ng-if="pharmacy.website.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- pharmacy Website field -->
+            <div id="content-div">
+              <label>In Network status:</label>
+              <span
+                id="label-data-content"
+                ng-if="pharmacy.inNetworkStatus.length > 0"
+                >{{ pharmacy.inNetworkStatus }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="pharmacy.inNetworkStatus.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- pharmacy Last Seen: field -->
+            <div id="content-div">
+              <label>Last Seen:</label>
+              <span
+                id="label-data-content"
+                ng-if="pharmacy.lastSceen.length > 0"
+                >{{ pharmacy.lastSceen }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="pharmacy.lastSceen.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- pharmacy Electronic Health Record Link field -->
+            <div id="content-div">
+              <label>Electronic Health Record Link</label>
+              <span
+                id="label-data-content"
+                ng-if="pharmacy.electronicHealthRecordLink.length > 0"
+                >{{ pharmacy.electronicHealthRecordLink }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="pharmacy.electronicHealthRecordLink.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- pharmacy Notes field -->
+            <div id="content-div">
+              <label>Notes:</label>
+              <span id="label-data-content" ng-if="pharmacy.notes.length > 0">{{
+                pharmacy.notes
+              }}</span>
+              <span id="span-empty-field" ng-if="pharmacy.notes.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- pharmacy Contact1 field -->
+            <!-- TODO: Need to make this field dynamic based on a collection -->
+            <div id="content-div">
+              <label>Contact1:</label>
+              <span
+                id="label-data-content"
+                ng-if="pharmacy.contact1.length > 0"
+                >{{ pharmacy.contact1 }}</span
+              >
+              <span id="span-empty-field" ng-if="pharmacy.Contact1.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- pharmacy Contact2: field -->
+            <div id="content-div">
+              <label>Contact2:</label>
+              <span
+                id="label-data-content"
+                ng-if="pharmacy.contact2.length > 0"
+                >{{ pharmacy.contact2 }}</span
+              >
+              <span id="span-empty-field" ng-if="pharmacy.contact2.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div id="page-footer" ng-hide="$even">
+          <p id="company-website-footer">WWW.MINDYOUR-LOVEDONES.COM</p>
+          <p id="page-number">Page: 1</p>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function getScope() {
+      var outside = angular
+        .element(document.getElementById("page-main-body"))
+        .scope();
+      return outside;
+    }
+
+    function renderReportData(reportData) {
+      debugger;
+      var $scope = getScope();
+      var decodedData = window.atob(reportData); // decode the string
+      const parsedResponse = JSON.parse(decodedData);
+      parsedResponse.pharmacy.length % 2 === 0 ? parsedResponse.pharmacy : parsedResponse.pharmacy.push({});
+      $scope.masterDataModel = {
+        pharmacy: parsedResponse.pharmacy,
+        username: parsedResponse.username
+      };
+      $scope.$apply();
+    }
+
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", function($scope) {
+      $scope.todayDate = new Date().toISOString().slice(0, 10);
+      $scope.masterDataModel = [{}];
+
+      $scope.isEmpty = function(dictionary) {
+        return Object.keys(dictionary).length === 0;
+      };
+    });
+  </script>
+</html>
