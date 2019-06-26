@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8659773722BEB45A007DC759 /* myawesome.html in Resources */ = {isa = PBXBuildFile; fileRef = 8659773622BEB459007DC759 /* myawesome.html */; };
 		86787F6322BC78FF000008BF /* learning-table.html in Resources */ = {isa = PBXBuildFile; fileRef = 86787F6222BC78FF000008BF /* learning-table.html */; };
+		867F24A522C3046E001658DB /* pharmacy.html in Resources */ = {isa = PBXBuildFile; fileRef = 867F24A422C3046D001658DB /* pharmacy.html */; };
+		867F24A722C30473001658DB /* hospital.html in Resources */ = {isa = PBXBuildFile; fileRef = 867F24A622C30473001658DB /* hospital.html */; };
+		867F24A922C30478001658DB /* doctor.html in Resources */ = {isa = PBXBuildFile; fileRef = 867F24A822C30478001658DB /* doctor.html */; };
 		86BA7D8122AB4C7200FE0266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7D8022AB4C7200FE0266 /* AppDelegate.swift */; };
 		86BA7D8322AB4C7200FE0266 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7D8222AB4C7200FE0266 /* ViewController.swift */; };
 		86BA7D8622AB4C7200FE0266 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86BA7D8422AB4C7200FE0266 /* Main.storyboard */; };
@@ -43,8 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8659773622BEB459007DC759 /* myawesome.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = myawesome.html; sourceTree = "<group>"; };
 		86787F6222BC78FF000008BF /* learning-table.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "learning-table.html"; sourceTree = "<group>"; };
+		867F24A422C3046D001658DB /* pharmacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pharmacy.html; sourceTree = "<group>"; };
+		867F24A622C30473001658DB /* hospital.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hospital.html; sourceTree = "<group>"; };
+		867F24A822C30478001658DB /* doctor.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = doctor.html; sourceTree = "<group>"; };
 		86BA7D7D22AB4C7200FE0266 /* swiftToHtmlPoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftToHtmlPoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86BA7D8022AB4C7200FE0266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86BA7D8222AB4C7200FE0266 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,8 +128,10 @@
 				86F5AFF422ADBED500BCDD61 /* user-icon.png */,
 				86E6398222BE62640002FF52 /* myReport.html */,
 				86787F6222BC78FF000008BF /* learning-table.html */,
+				867F24A822C30478001658DB /* doctor.html */,
+				867F24A622C30473001658DB /* hospital.html */,
+				867F24A422C3046D001658DB /* pharmacy.html */,
 				86E4DC6B22ABFA2F001C4CC0 /* tempReport.html */,
-				8659773622BEB459007DC759 /* myawesome.html */,
 				86BA7D8022AB4C7200FE0266 /* AppDelegate.swift */,
 				86BA7D8222AB4C7200FE0266 /* ViewController.swift */,
 				86BA7D8422AB4C7200FE0266 /* Main.storyboard */,
@@ -261,16 +267,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867F24A522C3046E001658DB /* pharmacy.html in Resources */,
 				86F5AFF722ADBED500BCDD61 /* personal-profile.png in Resources */,
 				86F5AFF822ADBED500BCDD61 /* header-logo.png in Resources */,
 				86E6398322BE62640002FF52 /* myReport.html in Resources */,
 				86E4DC6C22ABFA2F001C4CC0 /* tempReport.html in Resources */,
-				8659773722BEB45A007DC759 /* myawesome.html in Resources */,
 				86BA7D8B22AB4C7300FE0266 /* LaunchScreen.storyboard in Resources */,
 				86BA7D8822AB4C7300FE0266 /* Assets.xcassets in Resources */,
 				86F118E622B1D29200F46E1A /* angular.min.js in Resources */,
 				86F5AFF522ADBED500BCDD61 /* gradiant.png in Resources */,
+				867F24A922C30478001658DB /* doctor.html in Resources */,
 				86F5AFF622ADBED500BCDD61 /* calendar-icon.png in Resources */,
+				867F24A722C30473001658DB /* hospital.html in Resources */,
 				86BA7D8622AB4C7200FE0266 /* Main.storyboard in Resources */,
 				86F5AFF922ADBED500BCDD61 /* user-icon.png in Resources */,
 				86787F6322BC78FF000008BF /* learning-table.html in Resources */,

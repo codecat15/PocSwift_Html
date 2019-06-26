@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let htmlFile = Bundle.main.path(forResource: "myawesome", ofType: "html")
+        let htmlFile = Bundle.main.path(forResource: "hospital", ofType: "html")
         let html = try? String(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8)
         self.pocWebView.loadHTMLString(html!, baseURL: Bundle.main.bundleURL)
     }
