@@ -11,10 +11,10 @@ import Foundation
 struct MockData
 {
     func getMockDataForReports() -> [String: Any]{
-        return [ //"doctor": Doctor.getMockDoctorResponse(),
+        return [ "doctor": Doctor.getMockDoctorResponse(),
                  "hospital": Hospitals.getMockHospitalResponse(),
-                // "username":"codecat15",
-                // "pharmacy": getMockDataForPharmacy(),
+                 "username":"Batman",
+                 "pharmacy": getMockDataForPharmacy(),
             //"personalProfile": UserProfile.getMockUserProfileResponse(),
                 // "pet": getMockDataForPets(),
                 // "allergy": getMockDataForAllergy()
@@ -23,16 +23,16 @@ struct MockData
 
     func getMockDataForPharmacy()->[[String:String]]{
         return [[
-            "Name": "Cvs Uws Ny",
-            "Address": "200 West End Ave 70th St United States",
-            "Website": "",
-            "Notes": "",
+            "name": "Cvs Uws Ny",
+            "address": "200 West End Ave 70th St United States",
+            "website": "",
+            "notes": "",
             "Contact1": "Office:(212) 496-4198"
             ], [
-                "Name": "Walmart NY",
-                "Address": "200 West End Ave 70th St United States",
-                "Website": "",
-                "Notes": "",
+                "name": "Walmart NY",
+                "address": "200 West End Ave 70th St United States",
+                "website": "",
+                "notes": "",
                 "Contact1": "Office:(210) 496-4198"
             ]];
     }

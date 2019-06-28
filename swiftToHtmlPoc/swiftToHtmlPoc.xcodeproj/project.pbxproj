@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		86787F6322BC78FF000008BF /* learning-table.html in Resources */ = {isa = PBXBuildFile; fileRef = 86787F6222BC78FF000008BF /* learning-table.html */; };
-		867F24A522C3046E001658DB /* pharmacy.html in Resources */ = {isa = PBXBuildFile; fileRef = 867F24A422C3046D001658DB /* pharmacy.html */; };
-		867F24A722C30473001658DB /* hospital.html in Resources */ = {isa = PBXBuildFile; fileRef = 867F24A622C30473001658DB /* hospital.html */; };
-		867F24A922C30478001658DB /* doctor.html in Resources */ = {isa = PBXBuildFile; fileRef = 867F24A822C30478001658DB /* doctor.html */; };
 		86BA7D8122AB4C7200FE0266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7D8022AB4C7200FE0266 /* AppDelegate.swift */; };
 		86BA7D8322AB4C7200FE0266 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7D8222AB4C7200FE0266 /* ViewController.swift */; };
 		86BA7D8622AB4C7200FE0266 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86BA7D8422AB4C7200FE0266 /* Main.storyboard */; };
@@ -19,12 +15,12 @@
 		86BA7D9622AB4C7300FE0266 /* swiftToHtmlPocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7D9522AB4C7300FE0266 /* swiftToHtmlPocTests.swift */; };
 		86BA7DA422AB666600FE0266 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BA7DA322AB666600FE0266 /* WebKit.framework */; };
 		86E4DC6C22ABFA2F001C4CC0 /* tempReport.html in Resources */ = {isa = PBXBuildFile; fileRef = 86E4DC6B22ABFA2F001C4CC0 /* tempReport.html */; };
-		86E6398322BE62640002FF52 /* myReport.html in Resources */ = {isa = PBXBuildFile; fileRef = 86E6398222BE62640002FF52 /* myReport.html */; };
 		86F118DF22B1A9B900F46E1A /* EncodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118DE22B1A9B900F46E1A /* EncodableExtensions.swift */; };
 		86F118E222B1A9F800F46E1A /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118E122B1A9F800F46E1A /* Doctor.swift */; };
 		86F118E422B1C9C200F46E1A /* Hospitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118E322B1C9C200F46E1A /* Hospitals.swift */; };
 		86F118E622B1D29200F46E1A /* angular.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 86F118E522B1D29200F46E1A /* angular.min.js */; };
 		86F118E822B1DCF800F46E1A /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F118E722B1DCF800F46E1A /* UserProfile.swift */; };
+		86F3F02F22C5A19900491D30 /* reports.html in Resources */ = {isa = PBXBuildFile; fileRef = 86F3F02E22C5A19900491D30 /* reports.html */; };
 		86F5AFF522ADBED500BCDD61 /* gradiant.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF022ADBED500BCDD61 /* gradiant.png */; };
 		86F5AFF622ADBED500BCDD61 /* calendar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF122ADBED500BCDD61 /* calendar-icon.png */; };
 		86F5AFF722ADBED500BCDD61 /* personal-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5AFF222ADBED500BCDD61 /* personal-profile.png */; };
@@ -45,10 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		86787F6222BC78FF000008BF /* learning-table.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "learning-table.html"; sourceTree = "<group>"; };
-		867F24A422C3046D001658DB /* pharmacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pharmacy.html; sourceTree = "<group>"; };
-		867F24A622C30473001658DB /* hospital.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hospital.html; sourceTree = "<group>"; };
-		867F24A822C30478001658DB /* doctor.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = doctor.html; sourceTree = "<group>"; };
 		86BA7D7D22AB4C7200FE0266 /* swiftToHtmlPoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftToHtmlPoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86BA7D8022AB4C7200FE0266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86BA7D8222AB4C7200FE0266 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,12 +53,12 @@
 		86BA7D9722AB4C7300FE0266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86BA7DA322AB666600FE0266 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		86E4DC6B22ABFA2F001C4CC0 /* tempReport.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tempReport.html; sourceTree = "<group>"; };
-		86E6398222BE62640002FF52 /* myReport.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = myReport.html; sourceTree = "<group>"; };
 		86F118DE22B1A9B900F46E1A /* EncodableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtensions.swift; sourceTree = "<group>"; };
 		86F118E122B1A9F800F46E1A /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		86F118E322B1C9C200F46E1A /* Hospitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitals.swift; sourceTree = "<group>"; };
 		86F118E522B1D29200F46E1A /* angular.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = angular.min.js; sourceTree = "<group>"; };
 		86F118E722B1DCF800F46E1A /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		86F3F02E22C5A19900491D30 /* reports.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = reports.html; sourceTree = "<group>"; };
 		86F5AFF022ADBED500BCDD61 /* gradiant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradiant.png; sourceTree = "<group>"; };
 		86F5AFF122ADBED500BCDD61 /* calendar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-icon.png"; sourceTree = "<group>"; };
 		86F5AFF222ADBED500BCDD61 /* personal-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personal-profile.png"; sourceTree = "<group>"; };
@@ -126,11 +118,7 @@
 				86F5AFF322ADBED500BCDD61 /* header-logo.png */,
 				86F5AFF222ADBED500BCDD61 /* personal-profile.png */,
 				86F5AFF422ADBED500BCDD61 /* user-icon.png */,
-				86E6398222BE62640002FF52 /* myReport.html */,
-				86787F6222BC78FF000008BF /* learning-table.html */,
-				867F24A822C30478001658DB /* doctor.html */,
-				867F24A622C30473001658DB /* hospital.html */,
-				867F24A422C3046D001658DB /* pharmacy.html */,
+				86F3F02E22C5A19900491D30 /* reports.html */,
 				86E4DC6B22ABFA2F001C4CC0 /* tempReport.html */,
 				86BA7D8022AB4C7200FE0266 /* AppDelegate.swift */,
 				86BA7D8222AB4C7200FE0266 /* ViewController.swift */,
@@ -267,21 +255,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				867F24A522C3046E001658DB /* pharmacy.html in Resources */,
 				86F5AFF722ADBED500BCDD61 /* personal-profile.png in Resources */,
+				86F3F02F22C5A19900491D30 /* reports.html in Resources */,
 				86F5AFF822ADBED500BCDD61 /* header-logo.png in Resources */,
-				86E6398322BE62640002FF52 /* myReport.html in Resources */,
 				86E4DC6C22ABFA2F001C4CC0 /* tempReport.html in Resources */,
 				86BA7D8B22AB4C7300FE0266 /* LaunchScreen.storyboard in Resources */,
 				86BA7D8822AB4C7300FE0266 /* Assets.xcassets in Resources */,
 				86F118E622B1D29200F46E1A /* angular.min.js in Resources */,
 				86F5AFF522ADBED500BCDD61 /* gradiant.png in Resources */,
-				867F24A922C30478001658DB /* doctor.html in Resources */,
 				86F5AFF622ADBED500BCDD61 /* calendar-icon.png in Resources */,
-				867F24A722C30473001658DB /* hospital.html in Resources */,
 				86BA7D8622AB4C7200FE0266 /* Main.storyboard in Resources */,
 				86F5AFF922ADBED500BCDD61 /* user-icon.png in Resources */,
-				86787F6322BC78FF000008BF /* learning-table.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
