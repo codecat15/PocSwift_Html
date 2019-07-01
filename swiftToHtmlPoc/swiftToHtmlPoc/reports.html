@@ -76,6 +76,16 @@
         border: 2px solid gray;
         page-break-after: avoid;
       }
+      #pet-body {
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background-color: white;
+        padding-left: 20px;
+        border-radius: 20px;
+        border: 2px solid gray;
+        page-break-after: avoid;
+        margin-right: 20px;
+      }
 
       label {
         display: block;
@@ -1047,12 +1057,12 @@
             </div>
 
             <!-- Pet details are here -->
-            <div id="petInfo">
+            <div id="petInfo" ng-if="userProfile.pets.toLowerCase() === 'yes'">
               <p style="color: #59cfff;font-weight: bold;font-size: 20px">
                 Pet(s) Details
               </p>
               <!-- Pet details section starts here -->
-              <div id="page-body" ng-repeat="pet in masterDataModel.petDetails">
+              <div id="pet-body" ng-repeat="pet in masterDataModel.petDetails">
                 <div id="doctor-content">
                   <!-- Pet name field -->
                   <div id="content-div">
@@ -1303,7 +1313,7 @@
         idNumber: "",
         contact1: "Mobile: 646-515-6598",
         contact2: "Mobile: 212-111-111",
-        pets: "Yes"
+        pets: "YES"
       };
       let userPet = [
         {
