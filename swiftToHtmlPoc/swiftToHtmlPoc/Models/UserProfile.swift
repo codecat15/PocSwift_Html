@@ -21,8 +21,9 @@ struct UserProfile: Encodable {
     let eyes: String
     let liveAlone: String
     let understandEnglish: String
+    let pets:String
 
     static func getMockUserProfileResponse() -> [String:Any] {
-        return try! UserProfile(name: "Tony Stark", relationship: "Single", address: "San jose 123", email: "toney@starkIndustries.com", gender: "Male", birthDate: "1-1-1985", weight: "150", height: "5-2", languageSpoken: "English",eyes: "Brown", liveAlone: "No", understandEnglish: "Yes").toDictionary()
+        return try! UserProfile(name: "Tony Stark", relationship: "Single", address: "San jose 123", email: "toney@starkIndustries.com", gender: "Male", birthDate: "1-1-1985", weight: "150", height: "5-2", languageSpoken: "English",eyes: "Brown", liveAlone: "No", understandEnglish: "Yes",pets: "Yes").toDictionary()
     }
 }
