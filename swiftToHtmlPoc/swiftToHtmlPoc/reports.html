@@ -874,18 +874,6 @@
               >
             </div>
 
-            <!-- profession: "Elder Attorney",
-        significantOther: "No",
-        employedBy: "Legal group",
-        managerPhone: "212-709-8104",
-        martialStatus: "Married",
-        religionNote: "Jewish",
-        veteran: "No",
-        idNumber: "",
-        contact1: "Mobile: 646-515-6598",
-        contact2: "Mobile: 212-111-111",
-        pets: "Yes" -->
-
             <!-- user profile profession field -->
             <div id="content-div">
               <label>Profession:</label>
@@ -942,6 +930,109 @@
               <span
                 id="span-empty-field"
                 ng-if="userProfile.managerPhone.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile marital status field -->
+            <div id="content-div">
+              <label>Marital Status:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.martialStatus.length > 0"
+                >{{ userProfile.martialStatus }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.martialStatus.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile religious note field -->
+            <div id="content-div">
+              <label>Marital Status:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.religionNote.length > 0"
+                >{{ userProfile.religionNote }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.religionNote.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile Veteran field -->
+            <div id="content-div">
+              <label>Veteran:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.veteran.length > 0"
+                >{{ userProfile.veteran }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.veteran.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile marital status field -->
+            <div id="content-div">
+              <label>ID Number:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.idNumber.length > 0"
+                >{{ userProfile.idNumber }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.idNumber.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile Contact 1 field -->
+            <div id="content-div">
+              <label>Contact 1:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.contact1.length > 0"
+                >{{ userProfile.contact1 }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.contact1.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile Contact 2 field -->
+            <div id="content-div">
+              <label>Contact 2:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.contact2.length > 0"
+                >{{ userProfile.contact2 }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.contact2.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile Pets field -->
+            <div id="content-div">
+              <label>Pets</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.pets.length > 0"
+                >{{ userProfile.pets }}</span
+              >
+              <span id="span-empty-field" ng-if="userProfile.pets.length === 0"
                 >Field is Empty</span
               >
             </div>
