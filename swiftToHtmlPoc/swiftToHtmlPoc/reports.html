@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
   <head>
     <meta charset="utf-8" />
     <title>Mylo reports</title>
@@ -154,7 +154,8 @@
 
       #doctor-content,
       #hospital-content,
-      #pharmacy-content {
+      #pharmacy-content,
+      #personal-profile-content {
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -560,7 +561,7 @@
               >
             </div>
 
-            <!-- pharmacy Website field -->
+            <!-- pharmacy Notes field -->
             <div id="content-div">
               <label>Notes:</label>
               <span id="label-data-content" ng-if="pharmacy.notes.length > 0">{{
@@ -591,6 +592,367 @@
           <p id="page-number">Page: 1</p>
         </div>
       </div>
+
+      <!-- Personal profile here -->
+      <div id="container">
+        <div id="page-header">
+          <strong class="centered-header-image-text"
+            >SPECIALITY CONTACTS</strong
+          >
+          <img id="page-header-image" src="gradiant.png" />
+        </div>
+
+        <div style="padding:20px 0;">
+          <img
+            src="https://static.thenounproject.com/png/157453-200.png"
+            style="display:inline-block; vertical-align:middle; width:5%;"
+          />
+          <span id="report-type">Personal Profile</span>
+        </div>
+
+        <div id="page-body">
+          <div id="#personal-profile-content">
+            <!-- user profile name field -->
+            <div id="content-div">
+              <label>Name:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.name.length > 0"
+                >{{ userProfile.name }}</span
+              >
+              <span id="span-empty-field" ng-if="userProfile.name.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- user profile relationship field  -->
+            <div id="content-div">
+              <label>Relationship:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.relationship.length > 0"
+                >{{ userProfile.relationship }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.relationship.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile Address field -->
+            <div id="content-div">
+              <label>Address:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.address.length > 0"
+                >{{ userProfile.address }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.address.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile Email field -->
+            <div id="content-div">
+              <label>Email:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.email.length > 0"
+                >{{ userProfile.email }}</span
+              >
+              <span id="span-empty-field" ng-if="userProfile.email.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile gender field -->
+            <div id="content-div">
+              <label>Gender:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.gender.length > 0"
+                >{{ userProfile.gender }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.gender.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile birthday field -->
+            <div id="content-div">
+              <label>Birthday:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.birthday.length > 0"
+                >{{ userProfile.birthday }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.birthday.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile weight field -->
+            <div id="content-div">
+              <label>Weight:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.weight.length > 0"
+                >{{ userProfile.weight }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.weight.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile height field -->
+            <div id="content-div">
+              <label>Height:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.height.length > 0"
+                >{{ userProfile.height }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.height.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile language spoken field -->
+            <div id="content-div">
+              <label>LanguageSpoken:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.languageSpoken.length > 0"
+                >{{ userProfile.languageSpoken }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.languageSpoken.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile eyes field -->
+            <div id="content-div">
+              <label>Eyes:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.eyes.length > 0"
+                >{{ userProfile.eyes }}</span
+              >
+              <span id="span-empty-field" ng-if="userProfile.eyes.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile live alone field -->
+            <div id="content-div">
+              <label>Do you live alone?:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.livealone.length > 0"
+                >{{ userProfile.livealone }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.livealone.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile understandEnglish field -->
+            <div id="content-div">
+              <label>Understand English:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.understandEnglish.length > 0"
+                >{{ userProfile.understandEnglish }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.understandEnglish.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile Friend field -->
+            <div id="content-div">
+              <label>Friend:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.friend.length > 0"
+                >{{ userProfile.friend }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.friend.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile children field -->
+            <div id="content-div">
+              <label>Children:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.children.length > 0"
+                >{{ userProfile.children }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.children.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile parents field -->
+            <div id="content-div">
+              <label>Parents(s):</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.parents.length > 0"
+                >{{ userProfile.parents }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.parents.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile grandparents field -->
+            <div id="content-div">
+              <label>Grandparents(s):</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.grandparents.length > 0"
+                >{{ userProfile.grandparents }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.grandparents.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile sibling field -->
+            <div id="content-div">
+              <label>Sibling:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.sibling.length > 0"
+                >{{ userProfile.sibling }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.sibling.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- user profile sibling field -->
+            <div id="content-div">
+              <label>Spouse:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.spouse.length > 0"
+                >{{ userProfile.spouse }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.spouse.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- profession: "Elder Attorney",
+        significantOther: "No",
+        employedBy: "Legal group",
+        managerPhone: "212-709-8104",
+        martialStatus: "Married",
+        religionNote: "Jewish",
+        veteran: "No",
+        idNumber: "",
+        contact1: "Mobile: 646-515-6598",
+        contact2: "Mobile: 212-111-111",
+        pets: "Yes" -->
+
+            <!-- user profile profession field -->
+            <div id="content-div">
+              <label>Profession:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.profession.length > 0"
+                >{{ userProfile.profession }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.profession.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile profession field -->
+            <div id="content-div">
+              <label>Significant Other:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.significantOther.length > 0"
+                >{{ userProfile.significantOther }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.significantOther.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile employed By field -->
+            <div id="content-div">
+              <label>Employed By:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.employedBy.length > 0"
+                >{{ userProfile.employedBy }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.employedBy.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- user profile employed By field -->
+            <div id="content-div">
+              <label>Manager Phone:</label>
+              <span
+                id="label-data-content"
+                ng-if="userProfile.managerPhone.length > 0"
+                >{{ userProfile.managerPhone }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="userProfile.managerPhone.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+          </div>
+        </div>
+        <div id="page-footer">
+          <p id="company-website-footer">www.google.com</p>
+          <p id="page-number">Page: 1</p>
+        </div>
+      </div>
+      <!-- end of personal profile -->
     </div>
   </body>
 
@@ -626,6 +988,7 @@
         pharmacy: parsedResponse.pharmacy,
         username: parsedResponse.username
       };
+      $scope.userProfile = parsedResponse.personalProfile;
 
       $scope.$apply();
     }
@@ -633,6 +996,40 @@
     var app = angular.module("myApp", []);
     app.controller("myCtrl", function($scope) {
       $scope.todayDate = new Date().toISOString().slice(0, 10);
+
+      var userP = {
+        name: "Ravi",
+        relationship: "self",
+        address: "1234 NYC PO-4678",
+        email: "test@test.com",
+        gender: "male",
+        birthday: "15-july-1988",
+        weight: "76",
+        height: "5'6",
+        languageSpoken: "English",
+        eyes: "Brown",
+        livealone: "No",
+        understandEnglish: "Yes",
+        friend: "No",
+        children: "No",
+        parents: "No",
+        grandparents: "No",
+        sibling: "No",
+        spouse: "Yes",
+        profession: "Elder Attorney",
+        significantOther: "No",
+        employedBy: "Legal group",
+        managerPhone: "212-709-8104",
+        martialStatus: "Married",
+        religionNote: "Jewish",
+        veteran: "No",
+        idNumber: "",
+        contact1: "Mobile: 646-515-6598",
+        contact2: "Mobile: 212-111-111",
+        pets: "Yes"
+      };
+      $scope.userProfile = userP;
+
       $scope.masterDataModel = {
         username: "Bruce Wyane"
       };
