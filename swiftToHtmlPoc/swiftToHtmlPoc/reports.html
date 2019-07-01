@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
   <head>
     <meta charset="utf-8" />
     <title>Mylo reports</title>
     <style type="text/css">
       body {
+        font-family: Lato;
         font-size: 16px;
         line-height: 20px;
         margin: 0;
@@ -89,6 +91,12 @@
         font-weight: bold;
       }
 
+      #hasPets {
+        display: block;
+        width: 100%;
+        border-bottom: 3px solid #ddd;
+        font-weight: bold;
+      }
       #span-empty-field {
         color: #747474;
         display: block;
@@ -594,7 +602,7 @@
       </div>
 
       <!-- Personal profile here -->
-      <div id="container">
+      <div id="container" ng-if="!isEmpty(userProfile)">
         <div id="page-header">
           <strong class="centered-header-image-text"
             >SPECIALITY CONTACTS</strong
@@ -1028,13 +1036,190 @@
             <div id="content-div">
               <label>Pets</label>
               <span
-                id="label-data-content"
+                id="hasPets"
+                style="display:block; width:100%;  border-bottom:3px solid #ddd;"
                 ng-if="userProfile.pets.length > 0"
                 >{{ userProfile.pets }}</span
               >
               <span id="span-empty-field" ng-if="userProfile.pets.length === 0"
                 >Field is Empty</span
               >
+            </div>
+
+            <!-- Pet details are here -->
+            <div id="petInfo">
+              <p style="color: #59cfff;font-weight: bold;font-size: 20px">
+                Pet(s) Details
+              </p>
+              <!-- Pet details section starts here -->
+              <div id="page-body" ng-repeat="pet in masterDataModel.petDetails">
+                <div id="doctor-content">
+                  <!-- Pet name field -->
+                  <div id="content-div">
+                    <label>Pet Name</label>
+                    <span id="label-data-content" ng-if="pet.name.length > 0">{{
+                      pet.name
+                    }}</span>
+                    <span id="span-empty-field" ng-if="pet.name.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+                  <!-- Breed field -->
+                  <div id="content-div">
+                    <label>Breed:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.breed.length > 0"
+                      >{{ pet.breed }}</span
+                    >
+                    <span id="span-empty-field" ng-if="pet.breed.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Color field -->
+                  <div id="content-div">
+                    <label>Color:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.color.length > 0"
+                      >{{ pet.color }}</span
+                    >
+                    <span id="span-empty-field" ng-if="pet.color.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Microchip number field -->
+                  <div id="content-div">
+                    <label>Microchip number:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.microchipNumber.length > 0"
+                      >{{ pet.microchipNumber }}</span
+                    >
+                    <span
+                      id="span-empty-field"
+                      ng-if="pet.microchipNumber.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Veterinarian Name field -->
+                  <div id="content-div">
+                    <label>Veterinarian Name:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.vetName.length > 0"
+                      >{{ pet.vetName }}</span
+                    >
+                    <span id="span-empty-field" ng-if="pet.vetName.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Veterinarian Address field -->
+                  <div id="content-div">
+                    <label>Veterinarian Address:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.vetAddress.length > 0"
+                      >{{ pet.vetAddress }}</span
+                    >
+                    <span
+                      id="span-empty-field"
+                      ng-if="pet.vetAddress.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Veterinarian Phone field -->
+                  <div id="content-div">
+                    <label>Veterinarian Phone:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.vetPhone.length > 0"
+                      >{{ pet.vetPhone }}</span
+                    >
+                    <span
+                      id="span-empty-field"
+                      ng-if="pet.vetPhone.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Name who will care for pet field -->
+                  <div id="content-div">
+                    <label>Name who will care for pet:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.namePetCare.length > 0"
+                      >{{ pet.namePetCare }}</span
+                    >
+                    <span
+                      id="span-empty-field"
+                      ng-if="pet.namePetCare.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Address who will care for pet field -->
+                  <div id="content-div">
+                    <label>Address who will care for pet:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.addressPetCare.length > 0"
+                      >{{ pet.addressPetCare }}</span
+                    >
+                    <span
+                      id="span-empty-field"
+                      ng-if="pet.addressPetCare.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Phone who will care for pet field -->
+                  <div id="content-div">
+                    <label>Phone who will care for pet:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.carePhone.length > 0"
+                      >{{ pet.carePhone }}</span
+                    >
+                    <span
+                      id="span-empty-field"
+                      ng-if="pet.carePhone.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Pet birthday field -->
+                  <div id="content-div">
+                    <label>Birth date:</label>
+                    <span
+                      id="label-data-content"
+                      ng-if="pet.birthday.length > 0"
+                      >{{ pet.birthday }}</span
+                    >
+                    <span
+                      id="span-empty-field"
+                      ng-if="pet.birthday.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+
+                  <!-- Pet notes field -->
+                  <div id="content-div">
+                    <label>Notes about Pet:</label>
+                    <span id="label-data-content" ng-if="pet.note.length > 0">{{
+                      pet.note
+                    }}</span>
+                    <span id="span-empty-field" ng-if="pet.note.length === 0"
+                      >Field is Empty</span
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1077,7 +1262,8 @@
         doctor: parsedResponse.doctor,
         hospital: parsedResponse.hospital,
         pharmacy: parsedResponse.pharmacy,
-        username: parsedResponse.username
+        username: parsedResponse.username,
+        petDetails: parsedResponse.petDetails
       };
       $scope.userProfile = parsedResponse.personalProfile;
 
@@ -1119,10 +1305,29 @@
         contact2: "Mobile: 212-111-111",
         pets: "Yes"
       };
+      let userPet = [
+        {
+          name: "Bruno",
+          breed: "golden ret",
+          color: "gold",
+          microchip: "1234",
+          vetname: "test vet",
+          vetadd: "123 NYC NYC-301"
+        },
+        {
+          name: "Theo",
+          breed: "golden ret",
+          color: "gold",
+          microchip: "12345",
+          vetname: "test vet1",
+          vetadd: "123 NYC NYC-301"
+        }
+      ];
       $scope.userProfile = userP;
 
       $scope.masterDataModel = {
-        username: "Bruce Wyane"
+        username: "Bruce Wyane",
+        petDetails: userPet
       };
 
       $scope.isEmpty = function(dictionary) {

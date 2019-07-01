@@ -15,8 +15,8 @@ struct MockData
                  "hospital": Hospitals.getMockHospitalResponse(),
                  "username":"Batman",
                  "pharmacy": getMockDataForPharmacy(),
-            //"personalProfile": UserProfile.getMockUserProfileResponse(),
-                // "pet": getMockDataForPets(),
+            "personalProfile": UserProfile.getMockUserProfileResponse(),
+                 "petDetails": getMockDataForPets(),
                 // "allergy": getMockDataForAllergy()
         ]
     }
@@ -38,18 +38,18 @@ struct MockData
     }
     
     func getMockDataForPets()->[[String:String]]{
-        return [["Name": "Lucy",
-                 "Breed": "Lab",
-                 "Color": "White",
-                 "Microchip number": "123456",
-                 "Veterinarian Name": "City vet",
-                 "Veterinarian Address": "West 72nd",
-                 "Veterinarian phone": "212732700",
-                 "Name who will care for pet": "Stacey",
-                 "Address who will care for pet": "7nd S",
-                 "Phone who will care for pet": "123456789",
-                 "Birthday": "10-Dec-2009",
-                 "Notes about Pet": "Not good with small children"]]
+        return [["name": "Lucy",
+                 "breed": "Lab",
+                 "color": "White",
+                 "microchipNumber": "123456",
+                 "vetName": "City vet",
+                 "vetAddress": "West 72nd",
+                 "vetPhone": "212732700",
+                 "namePetCare": "Stacey",
+                 "addressPetCare": "7nd S",
+                 "carePhone": "123456789",
+                 "birthday": "10-Dec-2009",
+                 "note": "Not good with small children"]]
     }
 
     func getMockDataForAllergy()->[[String:String]]{
