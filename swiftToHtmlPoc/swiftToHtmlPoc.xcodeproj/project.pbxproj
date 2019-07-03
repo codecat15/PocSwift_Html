@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8628BB5622CD2F0300217D72 /* profile.html in Resources */ = {isa = PBXBuildFile; fileRef = 8628BB5522CD2F0300217D72 /* profile.html */; };
 		86BA7D8122AB4C7200FE0266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7D8022AB4C7200FE0266 /* AppDelegate.swift */; };
 		86BA7D8322AB4C7200FE0266 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7D8222AB4C7200FE0266 /* ViewController.swift */; };
 		86BA7D8622AB4C7200FE0266 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86BA7D8422AB4C7200FE0266 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8628BB5522CD2F0300217D72 /* profile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = profile.html; sourceTree = "<group>"; };
 		86BA7D7D22AB4C7200FE0266 /* swiftToHtmlPoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftToHtmlPoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86BA7D8022AB4C7200FE0266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86BA7D8222AB4C7200FE0266 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		86BA7D7F22AB4C7200FE0266 /* swiftToHtmlPoc */ = {
 			isa = PBXGroup;
 			children = (
+				8628BB5522CD2F0300217D72 /* profile.html */,
 				86F9740822BAFDCD0025E0A3 /* Extension */,
 				86F118E522B1D29200F46E1A /* angular.min.js */,
 				86F118E022B1A9E900F46E1A /* Models */,
@@ -255,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8628BB5622CD2F0300217D72 /* profile.html in Resources */,
 				86F5AFF722ADBED500BCDD61 /* personal-profile.png in Resources */,
 				86F3F02F22C5A19900491D30 /* reports.html in Resources */,
 				86F5AFF822ADBED500BCDD61 /* header-logo.png in Resources */,

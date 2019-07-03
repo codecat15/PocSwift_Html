@@ -176,15 +176,12 @@
       #doctor-content,
       #hospital-content,
       #pharmacy-content,
-      #personal-profile-content {
-        margin-top: 30px;
-        margin-bottom: 30px;
-      }
+      #personal-profile-content,
       #allergy-content {
         margin-top: 30px;
         margin-bottom: 30px;
       }
-
+      
       #group-border,
       #pre-Existing-Medical-group {
         border-radius: 20px;
@@ -1341,7 +1338,7 @@
 
     <!-- pre existing medical conditions -->
     <div style="page-break-inside: avoid;">
-      <span style="margin-top: 30px;" id="report-type"
+      <span id="report-type"
         >Pre Existing Medical Conditions</span
       >
       <!-- pre existing medical condition content starts -->
@@ -1355,12 +1352,12 @@
             <label>Medical Conditions {{ $index + 1 }}:</label>
             <span
               id="label-data-content"
-              ng-if="allergy.allergy.length > 0"
-              >{{ allergy.allergy }}</span
+              ng-if="allergy.treatment.length > 0"
+              >{{ allergy.treatment }}</span
             >
             <span
               id="span-empty-field"
-              ng-if="allergy.allergy.length === 0"
+              ng-if="allergy.medicalConditioon.length === 0"
               >Field is Empty</span
             >
           </div>
@@ -1540,7 +1537,438 @@
       </div>
     </div>
     <!-- surgical history ends -->
-  </div>
+    <!-- Start copy from here -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Preferred Hospital</span>
+      <!-- Preferred Hospital content starts -->
+      <div id="group-border">
+        <div
+          id="allergy-content"
+          ng-repeat="allergy in masterDataModel.allergy"
+        >
+          <!-- Hospital Name field -->
+          <div id="content-div">
+            <label>Hospital {{ $index + 1 }}:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.allergy.length > 0"
+              >{{ allergy.allergy }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Preferred Hospital content -->
+
+    <!-- Blood type  -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Blood Type</span>
+      <!-- Blood Type content starts -->
+      <div id="group-border">
+        <div id="allergy-content">
+          <!-- Blood Type field -->
+          <div id="content-div">
+            <label>Blood Type</label>
+            <span style="font-weight: bold">O - Positive</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dental starts here -->
+
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Dental</span>
+      <!-- Dental starts -->
+      <div id="group-border">
+        <div id="allergy-content">
+          <!-- Blood Type field -->
+          <div id="content-div">
+            <label>Dentures- Removable Upper</label>
+            <span id="label-data-content">YES</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+
+          <div id="content-div">
+            <label>Dry Mouth</label>
+            <span id="label-data-content">YES</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+
+          <div id="content-div">
+            <label>Dentures- Removable Lower</label>
+            <span style="font-weight: bold">NO</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 10px;" id="allergy-note">
+        <label> Dental Note</label>
+        <span id="notes-bottom-line">test note</span>
+      </div>
+    </div>
+
+    <!-- Dental ends here -->
+
+    <!-- Diet starts here -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Diet</span>
+      <!-- Diet content starts -->
+      <div id="group-border">
+        <div id="allergy-content">
+          <!-- Diet note field -->
+          <div id="content-div">
+            <label>Diet Note</label>
+            <span style="font-weight: bold">Test diet note</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diet ends here -->
+
+    <!-- Hearing & Speech starts here  -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Hearing & Speech</span>
+      <!-- Diet content starts -->
+      <div id="group-border">
+        <div id="allergy-content">
+          <!-- Hearing Aid field -->
+          <div id="content-div">
+            <label>Hearing Aid(s)</label>
+            <span style="font-weight: bold">YES</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Speech Impairment field -->
+          <div id="content-div">
+            <label>Speech Impairment</label>
+            <span style="font-weight: bold">NO</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 10px;" id="allergy-note">
+        <label> Hearing & Speech Note</label>
+        <span id="notes-bottom-line">test note</span>
+      </div>
+    </div>
+    <!-- Hearing & Speech ends here -->
+
+    <!-- Immunization/Vaccines starts -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Immunization/Vaccines</span>
+      <!-- Immunization/Vaccines content starts -->
+      <div id="group-border">
+        <div
+          id="allergy-content"
+          ng-repeat="allergy in masterDataModel.allergy"
+        >
+          <!-- Vaccine field -->
+          <div id="content-div">
+            <label>Vaccine {{ $index + 1 }}:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.allergy.length > 0"
+              >{{ allergy.allergy }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Date field -->
+          <div id="content-div">
+            <label>Date:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.reaction.length > 0"
+              >{{ allergy.reaction }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 10px;" id="allergy-note">
+        <label> Immunization/Vaccines Note</label>
+        <span id="notes-bottom-line">test note</span>
+      </div>
+    </div>
+    <!-- Immunization/Vaccines ends -->
+
+    <!-- Organ Donor starts here -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Organ Donor</span>
+      <!-- Organ Donor content starts -->
+      <div id="group-border">
+        <div id="allergy-content">
+          <!-- Organ Donor field -->
+          <div id="content-div">
+            <label>Are you a organ donor?</label>
+            <span style="font-weight: bold">YES</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Organ Donor ends here -->
+
+    <!-- Vision start here -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Vision</span>
+      <!-- Vision content starts -->
+      <div id="group-border">
+        <div id="allergy-content">
+          <!-- Vaccine field -->
+          <div id="content-div">
+            <label>Glasses</label>
+            <span id="label-data-content">YES</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Contact Lenses field -->
+          <div id="content-div">
+            <label>Contact Lenses</label>
+            <span id="label-data-content">NO</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+
+          <!-- Color Blind field -->
+          <div id="content-div">
+            <label>Color Blind</label>
+            <span>YES</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 10px;" id="allergy-note">
+        <label> Vision Note</label>
+        <span id="notes-bottom-line">test note</span>
+      </div>
+    </div>
+    <!-- Vision end here -->
+
+    <!-- Smoking/Tobacco Use -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Smoking/Tobacco Use</span>
+      <!-- Smoking/Tobacco content starts -->
+      <div id="group-border">
+        <div id="allergy-content">
+          <!-- Vaccine field -->
+          <div id="content-div">
+            <label>Smoking/Tobacco Use</label>
+            <span id="label-data-content">Current</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Type field -->
+          <div id="content-div">
+            <label>Type</label>
+            <span id="label-data-content">abcd</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+
+          <!-- Amount/Frequency field -->
+          <div id="content-div">
+            <label>Amount/Frequency</label>
+            <span>less</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+
+          <!-- Number of years field -->
+          <div id="content-div">
+            <label>Number of Years & when Stopped (if applicable)</label>
+            <span>1 year</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Smoking/Tobacco Use ends here -->
+
+    <!-- Alcohol starts here -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Alcohol</span>
+      <div id="group-border">
+        <div id="allergy-content">
+          <!-- Alcohol field -->
+          <div id="content-div">
+            <label>Alcohol</label>
+            <span id="label-data-content">Past</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Type field -->
+          <div id="content-div">
+            <label>Type</label>
+            <span id="label-data-content">abcd</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Amount/Frequency field -->
+          <div id="content-div">
+            <label>Amount/Frequency</label>
+            <span>less</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+
+          <!-- Number of years field -->
+          <div id="content-div">
+            <label>Number of Years & when Stopped (if applicable)</label>
+            <span>1 year</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Alcohol ends here -->
+
+    <!-- Regional Drug use -->
+    <div style="page-break-inside: avoid;">
+      <span id="report-type">Regional Drug use</span>
+      <div id="group-border">
+        <div id="allergy-content">
+          <!-- Regional Drug use field -->
+          <div id="content-div">
+            <label>Regional Drug use</label>
+            <span id="label-data-content">Past</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Type field -->
+          <div id="content-div">
+            <label>Type</label>
+            <span id="label-data-content">abcd</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+
+          <div id="content-div">
+            <label>Type</label>
+            <span>less</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Amount/Frequency field -->
+          <div id="content-div">
+            <label>Amount/Frequency</label>
+            <span>less</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+
+          <!-- Number of years field -->
+          <div id="content-div">
+            <label>Number of Years & when Stopped (if applicable)</label>
+            <span>1 year</span>
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Regional Drug use ends -->
+
+    <!-- end copy  here -->
+    </div>
   </div>
   <!-- end medical report -->
       <!-- Medical profile HTML ends here -->
@@ -1582,8 +2010,13 @@
         hospital: parsedResponse.hospital,
         pharmacy: parsedResponse.pharmacy,
         username: parsedResponse.username,
-        petDetails: parsedResponse.petDetails
+        petDetails: parsedResponse.petDetails,
+        allergy: parsedResponse.allergy,
+        preExistingMedicalCondition: parsedResponse.preExistingMedicalCondition,
+        medicalImplants: parsedResponse.medicalImplants,
+        surgicalHistory: parsedResponse.surgicalHistory
       };
+      
       $scope.userProfile = parsedResponse.personalProfile;
 
       $scope.$apply();
@@ -1665,7 +2098,6 @@
       $scope.masterDataModel = {
         username: "Bruce Wyane",
         allergy: allergyModel,
-        // petDetails: userPet
       };
 
       $scope.isEmpty = function(dictionary) {
