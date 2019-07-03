@@ -7,7 +7,7 @@
     <title>Mylo reports</title>
     <style type="text/css">
       body {
-        font-family: Lato;
+        font-family: "Lato", sans-serif;
         font-size: 16px;
         line-height: 20px;
         margin: 0;
@@ -42,7 +42,7 @@
         width: 100%;
       }
 
-      .centered-header-image-text {
+      .centered-header-image-text,#personal-medical-profile-header {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -51,6 +51,11 @@
         font-size: 30px;
         transform: translate(-50%, -50%);
       }
+
+      #personal-medical-profile-header{
+        font-size: 16px;
+      }
+
 
       #company-website-footer {
         text-align: left;
@@ -87,12 +92,16 @@
         color: #747474;
       }
 
-      #label-data-content {
+      #label-data-content,
+      #notes-bottom-line {
         display: block;
         width: 100%;
         padding: 10px 0;
         border-bottom: 3px solid #ddd;
         font-weight: bold;
+      }
+      #notes-bottom-line {
+        width: 97%;
       }
 
       #hasPets {
@@ -170,6 +179,24 @@
       #personal-profile-content {
         margin-top: 30px;
         margin-bottom: 30px;
+      }
+      #allergy-content {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      #group-border,
+      #pre-Existing-Medical-group {
+        border-radius: 20px;
+        border: 2px solid gray;
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        background-color: white;
+        page-break-before: avoid;
+      }
+      #pre-Existing-Medical-group {
+        margin-bottom: 10px;
       }
     </style>
   </head>
@@ -1233,6 +1260,294 @@
         </div>
       </div>
       <!-- end of personal profile -->
+
+      <!-- Medical profile HTML starts here -->
+<!-- starting medical report -->
+<div id="container">
+    <div id="page-header">
+      <strong id="personal-medical-profile-header"
+        >PERSONAL & MEDICAL PROFILE & EMERGENCY CONTACTS</strong
+      >
+      <img id="page-header-image" src="gradiant.png" />
+    </div>
+
+    <div style="padding:20px 0;">
+      <img
+        src="https://static.thenounproject.com/png/157453-200.png"
+        style="display:inline-block; vertical-align:middle; width:5%;"
+      />
+      <span id="report-type">Medical Profile</span>
+    </div>
+<div id="page-body">
+    <div style="page-break-inside: avoid;">
+      <span style="margin-top: 30px;" id="report-type">Allergy(s)</span>
+      <!-- allerrgy content starts -->
+      <div id="group-border">
+        <div
+          id="allergy-content"
+          ng-repeat="allergy in masterDataModel.allergy"
+        >
+          <!-- allergy Name field -->
+          <div id="content-div">
+            <label>Allergy {{ $index + 1 }}:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.allergy.length > 0"
+              >{{ allergy.allergy }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Reaction field -->
+          <div id="content-div">
+            <label>Reaction:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.reaction.length > 0"
+              >{{ allergy.reaction }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Reaction field -->
+          <div id="content-div">
+            <label>Treatment:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.treatment.length > 0"
+              >{{ allergy.treatment }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.treatment.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end allergy content -->
+    <div style="margin-left: 10px;" id="allergy-note">
+      <label>Allergy Note</label>
+      <span id="notes-bottom-line">test note</span>
+    </div>
+    <!-- end of allergy notes -->
+
+    <!-- pre existing medical conditions -->
+    <div style="page-break-inside: avoid;">
+      <span style="margin-top: 30px;" id="report-type"
+        >Pre Existing Medical Conditions</span
+      >
+      <!-- pre existing medical condition content starts -->
+      <div id="pre-Existing-Medical-group">
+        <div
+          id="allergy-content"
+          ng-repeat="allergy in masterDataModel.allergy"
+        >
+          <!-- Medical Condition field -->
+          <div id="content-div">
+            <label>Medical Conditions {{ $index + 1 }}:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.allergy.length > 0"
+              >{{ allergy.allergy }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Medical Notes field -->
+          <div id="content-div">
+            <label>Medical Notes:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.reaction.length > 0"
+              >{{ allergy.reaction }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end allergy content -->
+
+    <span id="notes-bottom-line"></span>
+
+    <!-- end of allergy notes -->
+    <!-- end of pre-existing medical conditions -->
+
+    <!-- Medical implants begin -->
+
+    <div style="page-break-inside: avoid;">
+      <span style="margin-top: 30px;" id="report-type"
+        >Medical Implants</span
+      >
+      <!-- allerrgy content starts -->
+      <div id="group-border">
+        <div
+          id="allergy-content"
+          ng-repeat="allergy in masterDataModel.allergy"
+        >
+          <!-- Implant Name field -->
+          <div id="content-div">
+            <label>Implant {{ $index + 1 }}:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.allergy.length > 0"
+              >{{ allergy.allergy }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Date field -->
+          <div id="content-div">
+            <label>Date:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.reaction.length > 0"
+              >{{ allergy.reaction }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Notes field -->
+          <div id="content-div">
+            <label>Notes:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.treatment.length > 0"
+              >{{ allergy.treatment }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.treatment.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end medical implant content -->
+    <div style="margin-left: 10px;" id="allergy-note">
+      <label> Medical Implant Note</label>
+      <span id="notes-bottom-line">test note</span>
+    </div>
+    <!-- end of medical implant notes -->
+    <!-- Medical implants end -->
+
+    <!-- surgical history begins -->
+
+    <div style="page-break-inside: avoid;">
+      <span style="margin-top: 30px;" id="report-type"
+        >Surgical History</span
+      >
+      <!-- allerrgy content starts -->
+      <div id="group-border">
+        <div
+          id="allergy-content"
+          ng-repeat="allergy in masterDataModel.allergy"
+        >
+          <!-- History field -->
+          <div id="content-div">
+            <label>History {{ $index + 1 }}:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.allergy.length > 0"
+              >{{ allergy.allergy }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.allergy.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Date field -->
+          <div id="content-div">
+            <label>Date:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.reaction.length > 0"
+              >{{ allergy.reaction }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.reaction.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- Doctor field -->
+          <div id="content-div">
+            <label>Doctor:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.treatment.length > 0"
+              >{{ allergy.treatment }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.treatment.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+
+          <!-- location field -->
+          <div id="content-div">
+            <label>Location:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.treatment.length > 0"
+              >{{ allergy.treatment }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.treatment.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+          <!-- surgical history note field -->
+          <div id="content-div">
+            <label>Surgical history notes:</label>
+            <span
+              id="label-data-content"
+              ng-if="allergy.treatment.length > 0"
+              >{{ allergy.treatment }}</span
+            >
+            <span
+              id="span-empty-field"
+              ng-if="allergy.treatment.length === 0"
+              >Field is Empty</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- surgical history ends -->
+  </div>
+  </div>
+  <!-- end medical report -->
+      <!-- Medical profile HTML ends here -->
+      <div id="page-footer">
+          <p id="company-website-footer">www.google.com</p>
+          <p id="page-number">Page: 1</p>
+        </div>
     </div>
   </body>
 
@@ -1329,8 +1644,27 @@
       ];
       //  $scope.userProfile = userP;
 
+      var allergyModel = [
+        {
+          allergy: "nax 1",
+          reaction: "increase heart beat",
+          treatment: "drink water"
+        },
+        {
+          allergy: "nax 2",
+          reaction: "increase heart beat",
+          treatment: "drink water"
+        },
+        {
+          allergy: "nax 3",
+          reaction: "increase heart beat",
+          treatment: "drink water"
+        }
+      ];
+
       $scope.masterDataModel = {
-        username: "Bruce Wyane"
+        username: "Bruce Wyane",
+        allergy: allergyModel,
         // petDetails: userPet
       };
 

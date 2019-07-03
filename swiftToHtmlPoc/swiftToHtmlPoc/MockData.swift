@@ -11,12 +11,12 @@ import Foundation
 struct MockData
 {
     func getMockDataForReports() -> [String: Any]{
-        return [ "doctor": Doctor.getMockDoctorResponse(),
-                 "hospital": Hospitals.getMockHospitalResponse(),
-                 "username":"Batman",
-                 "pharmacy": getMockDataForPharmacy(),
+        return [ //"doctor": Doctor.getMockDoctorResponse(),
+                 //"hospital": Hospitals.getMockHospitalResponse(),
+               //  "username":"Batman",
+                // "pharmacy": getMockDataForPharmacy(),
             "personalProfile": UserProfile.getMockUserProfileResponse(),
-                 "petDetails": getMockDataForPets(),
+                 //"petDetails": getMockDataForPets(),
                 // "allergy": getMockDataForAllergy()
         ]
     }
