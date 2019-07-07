@@ -186,6 +186,103 @@
           <strong>{{ todayDate }}</strong>
         </div>
       </div>
+
+      <!-- Insurance form starts here -->
+      <!-- change this to masterDataModel.insuranceForm after you do integration -->
+      <div id="container" ng-if="masterDataModel.doctor.length > 0">
+        <div id="page-header">
+          <strong class="centered-header-image-text">INSURANCE FORM</strong>
+          <img id="page-header-image" src="gradiant.png" />
+        </div>
+
+        <div style="padding:20px 0;">
+          <img
+            src="https://static.thenounproject.com/png/157453-200.png"
+            style="display:inline-block; vertical-align:middle; width:5%;"
+          />
+          <span id="report-type">Insurance Form</span>
+        </div>
+        <div id="page-body" ng-repeat="doctor in masterDataModel.doctor">
+          <div id="doctor-content">
+            <!-- Form Name field -->
+            <div id="content-div">
+              <label>Form Name:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.Speciality.length > 0"
+                >{{ doctor.Speciality }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.Speciality.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Date field -->
+            <div id="content-div">
+              <label>Date:</label>
+              <span id="label-data-content" ng-if="doctor.Name.length > 0">{{
+                doctor.Name
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Name.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="page-footer">
+        <p id="company-website-footer">WWW.MINDYOUR-LOVEDONES.COM</p>
+        <p id="page-number">Page: 1</p>
+      </div>
+      <!-- Insurance form ends here -->
+
+      <!-- Insurance card starts here -->
+      <!-- change this to masterDataModel.insuranceForm after you do integration -->
+      <div id="container" ng-if="masterDataModel.doctor.length > 0">
+        <div id="page-header">
+          <strong class="centered-header-image-text">INSURANCE CARD</strong>
+          <img id="page-header-image" src="gradiant.png" />
+        </div>
+
+        <div style="padding:20px 0;">
+          <img
+            src="https://static.thenounproject.com/png/157453-200.png"
+            style="display:inline-block; vertical-align:middle; width:5%;"
+          />
+          <span id="report-type">Insurance Card</span>
+        </div>
+        <div id="page-body" ng-repeat="doctor in masterDataModel.doctor">
+          <div id="doctor-content">
+            <!-- Provider Name field -->
+            <div id="content-div">
+              <label>Provider Name:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.Speciality.length > 0"
+                >{{ doctor.Speciality }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.Speciality.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Type field -->
+            <div id="content-div">
+              <label>Type:</label>
+              <span id="label-data-content" ng-if="doctor.Name.length > 0">{{
+                doctor.Name
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Name.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="page-footer">
+        <p id="company-website-footer">WWW.MINDYOUR-LOVEDONES.COM</p>
+        <p id="page-number">Page: 1</p>
+      </div>
+      <!-- Insurance card ends here -->
+
       <!-- change this to masterDataModel.otherDocument after you do integration -->
       <div id="container" ng-if="masterDataModel.doctor.length > 0">
         <div id="page-header">
@@ -565,7 +662,8 @@
       $scope.masterDataModel = {
         otherDocument: parsedResponse.otherDocument,
         medicalReport: parsedResponse.medicalReport,
-        advanceDirectory: parsedResponse.advanceDirectory
+        advanceDirectory: parsedResponse.advanceDirectory,
+        insuranceForm: parsedResponse.insuranceForm
       };
       $scope.$apply();
     }
