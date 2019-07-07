@@ -1260,7 +1260,8 @@
 
       <!-- Medical profile HTML starts here -->
 <!-- starting medical report -->
-<div id="container">
+
+<div id="container" ng-if="masterDataModel.allergy.length > 0 || masterDataModel.pre-existing.length > 0 || ">
     <div id="page-header">
       <strong id="personal-medical-profile-header"
         >PERSONAL & MEDICAL PROFILE & EMERGENCY CONTACTS</strong
@@ -2014,7 +2015,7 @@
         allergy: parsedResponse.allergy,
         preExistingMedicalCondition: parsedResponse.preExistingMedicalCondition,
         medicalImplants: parsedResponse.medicalImplants,
-        surgicalHistory: parsedResponse.surgicalHistory
+        surgicalHistory: parsedResponse.surgicalHistory,
       };
       
       $scope.userProfile = parsedResponse.personalProfile;

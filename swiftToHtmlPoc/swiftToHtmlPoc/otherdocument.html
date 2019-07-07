@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Mylo reports</title>
+    <style type="text/css">
+      body {
+        font-family: Lato;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 0 0 30px;
+        background-color: #f3f3f3;
+        width: 1000px;
+        margin: 0 auto;
+      }
+      #page-header {
+        width: 100%;
+        background-color: gray;
+        text-align: center;
+        margin-right: 40px;
+        position: relative;
+      }
+
+      #page-header {
+        top: 0;
+      }
+
+      #page-footer {
+        width: 100%;
+        max-width: 1000px;
+        bottom: 0;
+        height: 40px;
+        display: block;
+        background-color: #4b4b4b;
+        position: fixed;
+      }
+
+      #page-header-image {
+        width: 100%;
+      }
+
+      .centered-header-image-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 30px;
+        transform: translate(-50%, -50%);
+      }
+
+      #company-website-footer {
+        text-align: left;
+        margin-left: 10px;
+        justify-content: flex-start;
+        color: #8e8e8e;
+      }
+
+      #page-number {
+        /* I am not sure how to get the margin adjust by itself */
+        margin-left: 590px;
+        justify-content: flex-end;
+        margin-right: 30px;
+        color: #8e8e8e;
+      }
+
+      #page-body {
+        margin-bottom: 20px;
+        padding-left: 20px;
+        background-color: white;
+        border-radius: 20px;
+        border: 2px solid gray;
+      }
+
+      label {
+        display: block;
+        font-size: 14px;
+        color: #747474;
+      }
+
+      #label-data-content {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 3px solid #ddd;
+        font-weight: bold;
+      }
+
+      #span-empty-field {
+        color: #747474;
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 3px solid #ddd;
+        font-weight: bold;
+      }
+
+      #report-type {
+        display: inline-block;
+        color: #2aabe1;
+        font-size: 25px;
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+
+      .clearfix {
+        clear: both;
+        display: block;
+      }
+
+      .clearfix::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      #top-header {
+        width: auto;
+        background-color: white;
+        padding: 20px;
+        display: flex;
+        flex-wrap: space-between;
+      }
+
+      #user-icon {
+        float: left;
+        width: 40px;
+        padding: 15px;
+      }
+      #user-name-container {
+        justify-content: flex-start;
+        flex: 1;
+        padding: 15px 0px;
+      }
+      #today-date {
+        padding: 15px 0px;
+        justify-content: flex-end;
+      }
+
+      #app-logo {
+        flex: 1;
+        justify-content: center;
+        margin-right: 100px;
+      }
+
+      #content-div {
+        width: 47%;
+        padding: 0 10px;
+        display: inline-block;
+        margin: 0 0 10px;
+      }
+
+      #doctor-content {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      @media print {
+        #page-footer {
+          position: fixed;
+          bottom: 0;
+        }
+        @page {
+          margin: 2mm;
+        }
+      }
+    </style>
+  </head>
+
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <div id="page-main-body">
+      <!-- Top most header of the report -->
+      <div id="top-header">
+        <div id="user-name-container">
+          <img src="user-icon.png" style="vertical-align:middle;" />
+          <strong id="user-name">{{ masterDataModel.username }}</strong>
+        </div>
+
+        <div id="app-logo">
+          <img src="header-logo.png" />
+        </div>
+
+        <div id="today-date">
+          <img src="calendar-icon.png" style="vertical-align:middle;" />
+          <strong>{{ todayDate }}</strong>
+        </div>
+      </div>
+      <!-- change this to masterDataModel.otherDocument after you do integration -->
+      <div id="container" ng-if="masterDataModel.doctor.length > 0">
+        <div id="page-header">
+          <strong class="centered-header-image-text">OTHER DOCUMENTS</strong>
+          <img id="page-header-image" src="gradiant.png" />
+        </div>
+
+        <div style="padding:20px 0;">
+          <img
+            src="https://static.thenounproject.com/png/157453-200.png"
+            style="display:inline-block; vertical-align:middle; width:5%;"
+          />
+          <span id="report-type">Other Documents</span>
+        </div>
+        <div id="page-body" ng-repeat="doctor in masterDataModel.doctor">
+          <div id="doctor-content">
+            <!-- Category field -->
+            <div id="content-div">
+              <label>Category:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.Speciality.length > 0"
+                >{{ doctor.Speciality }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.Speciality.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Document Description field -->
+            <div id="content-div">
+              <label>Document Description:</label>
+              <span id="label-data-content" ng-if="doctor.Name.length > 0">{{
+                doctor.Name
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Name.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Document Received from field -->
+            <div id="content-div">
+              <label>Document Received from:</label>
+              <span id="label-data-content" ng-if="doctor.Address.length > 0">{{
+                doctor.Address
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Address.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Name of File field -->
+            <div id="content-div">
+              <label>Name of File:</label>
+              <span id="label-data-content" ng-if="doctor.Website.length > 0">{{
+                doctor.Website
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Website.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- Date of Document field -->
+            <div id="content-div">
+              <label>Date of Document:</label>
+              <span ng-if="doctor.medicalPracticeName.length > 0">{{
+                doctor.medicalPracticeName
+              }}</span>
+              <span
+                id="span-empty-field"
+                ng-if="doctor.medicalPracticeName.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Distributed to field -->
+            <div id="content-div">
+              <label>Distributed to:</label>
+              <span id="label-data-content">TBD</span>
+            </div>
+            <!-- Location of Original field -->
+            <div id="content-div">
+              <label>Location of Original:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.inNetworkStatus.length > 0"
+                >{{ doctor.inNetworkStatus }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="doctor.inNetworkStatus.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Doctor Last Seen: field -->
+            <div id="content-div">
+              <label>Notes:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.lastSceen.length > 0"
+                >{{ doctor.lastSceen }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.lastSceen.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="page-footer">
+        <p id="company-website-footer">WWW.MINDYOUR-LOVEDONES.COM</p>
+        <p id="page-number">Page: 1</p>
+      </div>
+      <!-- Other document ends here -->
+
+      <!-- Medical record starts here -->
+      <!-- change this to masterDataModel.medicalRecord after you do integration -->
+      <div id="container" ng-if="masterDataModel.doctor.length > 0">
+        <div id="page-header">
+          <strong class="centered-header-image-text">MEDICAL RECORD</strong>
+          <img id="page-header-image" src="gradiant.png" />
+        </div>
+
+        <div style="padding:20px 0;">
+          <img
+            src="https://static.thenounproject.com/png/157453-200.png"
+            style="display:inline-block; vertical-align:middle; width:5%;"
+          />
+          <span id="report-type">Medical record</span>
+        </div>
+        <div
+          id="page-body"
+          ng-repeat="doctor in masterDataModel.doctor"
+          ng-if="doctor.Name.length > 0"
+        >
+          <div id="doctor-content">
+            <!-- Document Description field -->
+            <div id="content-div">
+              <label>Document Description:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.Speciality.length > 0"
+                >{{ doctor.Speciality }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.Speciality.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Name on Document field -->
+            <div id="content-div">
+              <label>Name on Document:</label>
+              <span id="label-data-content" ng-if="doctor.Name.length > 0">{{
+                doctor.Name
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Name.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Name of File field -->
+            <div id="content-div">
+              <label>Name of File:</label>
+              <span id="label-data-content" ng-if="doctor.Address.length > 0">{{
+                doctor.Address
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Address.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Date of Document field -->
+            <div id="content-div">
+              <label>Date of Document:</label>
+              <span id="label-data-content" ng-if="doctor.Website.length > 0">{{
+                doctor.Website
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Website.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- Distributed to field -->
+            <div id="content-div">
+              <label>Distributed to:</label>
+              <span ng-if="doctor.medicalPracticeName.length > 0">{{
+                doctor.medicalPracticeName
+              }}</span>
+              <span
+                id="span-empty-field"
+                ng-if="doctor.medicalPracticeName.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- Location of Original field -->
+            <div id="content-div">
+              <label>Location of Original:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.inNetworkStatus.length > 0"
+                >{{ doctor.inNetworkStatus }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="doctor.inNetworkStatus.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Associated Physician or Hospital field -->
+            <div id="content-div">
+              <label>Associated Physician or Hospital:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.lastSceen.length > 0"
+                >{{ doctor.lastSceen }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.lastSceen.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Electronic Health Record Link field -->
+            <div id="content-div">
+              <label>Electronic Health Record Link:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.lastSceen.length > 0"
+                >{{ doctor.lastSceen }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.lastSceen.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Notes field -->
+            <div id="content-div">
+              <label>Notes:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.lastSceen.length > 0"
+                >{{ doctor.lastSceen }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.lastSceen.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="page-footer">
+        <p id="company-website-footer">WWW.MINDYOUR-LOVEDONES.COM</p>
+        <p id="page-number">Page: 1</p>
+      </div>
+      <!-- Medical record ends here -->
+
+      <!-- Advance Directives starts here -->
+      <!-- change this to masterDataModel.advanceDirectory after you do integration -->
+      <div id="container" ng-if="masterDataModel.doctor.length > 0">
+        <div id="page-header">
+          <strong class="centered-header-image-text">ADVANCE DIRECTIVES</strong>
+          <img id="page-header-image" src="gradiant.png" />
+        </div>
+
+        <div style="padding:20px 0;">
+          <img
+            src="https://static.thenounproject.com/png/157453-200.png"
+            style="display:inline-block; vertical-align:middle; width:5%;"
+          />
+          <span id="report-type">Advance directives</span>
+        </div>
+        <div
+          id="page-body"
+          ng-repeat="doctor in masterDataModel.doctor"
+          ng-if="doctor.Name.length > 0"
+        >
+          <div id="doctor-content">
+            <!-- Document Description field -->
+            <div id="content-div">
+              <label>Document Description:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.Speciality.length > 0"
+                >{{ doctor.Speciality }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.Speciality.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Document Received from field -->
+            <div id="content-div">
+              <label>Document Received from:</label>
+              <span id="label-data-content" ng-if="doctor.Address.length > 0">{{
+                doctor.Address
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Address.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+            <!-- Name of File field -->
+            <div id="content-div">
+              <label>Name of File:</label>
+              <span id="label-data-content" ng-if="doctor.Name.length > 0">{{
+                doctor.Name
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Name.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- Document Date field -->
+            <div id="content-div">
+              <label>Document Date:</label>
+              <span id="label-data-content" ng-if="doctor.Website.length > 0">{{
+                doctor.Website
+              }}</span>
+              <span id="span-empty-field" ng-if="doctor.Website.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- Distributed to field -->
+            <div id="content-div">
+              <label>Distributed to:</label>
+              <span ng-if="doctor.medicalPracticeName.length > 0">{{
+                doctor.medicalPracticeName
+              }}</span>
+              <span
+                id="span-empty-field"
+                ng-if="doctor.medicalPracticeName.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- Location of Original field -->
+            <div id="content-div">
+              <label>Location of Original:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.inNetworkStatus.length > 0"
+                >{{ doctor.inNetworkStatus }}</span
+              >
+              <span
+                id="span-empty-field"
+                ng-if="doctor.inNetworkStatus.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+
+            <!-- Notes field -->
+            <div id="content-div">
+              <label>Notes:</label>
+              <span
+                id="label-data-content"
+                ng-if="doctor.lastSceen.length > 0"
+                >{{ doctor.lastSceen }}</span
+              >
+              <span id="span-empty-field" ng-if="doctor.lastSceen.length === 0"
+                >Field is Empty</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="page-footer">
+        <p id="company-website-footer">WWW.MINDYOUR-LOVEDONES.COM</p>
+        <p id="page-number">Page: 1</p>
+      </div>
+      <!-- Medical record ends here -->
+    </div>
+  </body>
+
+  <script>
+    function getScope() {
+      var outside = angular
+        .element(document.getElementById("report-master-tag"))
+        .scope();
+      return outside;
+    }
+
+    function renderReportData(reportData) {
+      debugger;
+      var $scope = getScope();
+      var decodedData = window.atob(reportData); // decode the string
+      const parsedResponse = JSON.parse(decodedData);
+      $scope.masterDataModel = {
+        otherDocument: parsedResponse.otherDocument,
+        medicalReport: parsedResponse.medicalReport,
+        advanceDirectory: parsedResponse.advanceDirectory
+      };
+      $scope.$apply();
+    }
+
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", function($scope) {
+      $scope.todayDate = new Date().toISOString().slice(0, 10);
+
+      var doctorModel = [
+        {
+          Speciality: "Gynechologist",
+          Name: "Dr Jill Fishbane-Mayer-Gyno",
+          Address: "4 East 95th St 1a NY NY USA",
+          Website: "",
+          medicalPracticeName: "",
+          HospitalAffiliations: "",
+          inNetworkStatus: "",
+          lastSceen: "",
+          electronicHealthRecordLink: "",
+          Notes: "Test notes",
+          Contact1: "Office:(212) 348-1111",
+          Contact2: "Mobile:(212)348-1111"
+        },
+        {
+          Speciality: "Gynechologist",
+          Name: "Dr Bruce-Mayer-Gyno",
+          Address: "45 East 95th St 1a NY NY USA",
+          Website: "",
+          medicalPracticeName: "",
+          HospitalAffiliations: "",
+          inNetworkStatus: "",
+          lastSceen: "",
+          electronicHealthRecordLink: "",
+          Notes: "Test notes",
+          Contact1: "Office:(218) 348-1111",
+          Contact2: "Mobile:(217)348-1111"
+        },
+        {
+          Speciality: "Gynechologist",
+          Name: "Dr Bruce banner",
+          Address: "4 East 95th St 1a NY NY USA",
+          Website: "",
+          medicalPracticeName: "",
+          HospitalAffiliations: "",
+          inNetworkStatus: "",
+          lastSceen: "",
+          electronicHealthRecordLink: "",
+          Notes: "Test notes",
+          Contact1: "Office:(212) 348-1111",
+          Contact2: "Mobile:(212)348-1111"
+        }
+      ];
+
+      $scope.masterDataModel = {
+        doctor: doctorModel,
+        username: "Bruce Wyane"
+      };
+
+      $scope.isEmpty = function(dictionary) {
+        return Object.keys(dictionary).length === 0;
+      };
+    });
+  </script>
+</html>
